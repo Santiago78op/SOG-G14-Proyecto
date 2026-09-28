@@ -16,8 +16,7 @@ Proyecto 1 de **Sistemas Organizacionales y Gerenciales 1** (USAC, 2S 2026, secc
 | Carpeta | Qué es |
 |---|---|
 | `2S2026_Proyecto_1.pdf` | Enunciado |
-| `Entrega_Fase1_Grupo14/` | Fase 1: plantillas de trabajo y referencia del caso (`_Referencia/concepto_empresa.md`) |
-| `Entrega_Fase1_Grupo14-20260919T164857Z-1-001/` | **Fase 1 entregada** el 19-09-2026: informe, manual de instalación, mapa de procesos, guion de videos y presentación |
+| `Entrega_Fase1_Grupo14/` | **Fase 1 entregada** el 19-09-2026: informe, manual de instalación, mapa de procesos, guion de videos y presentación, más la referencia del caso (`_Referencia/concepto_empresa.md`) |
 | `Entrega_Fase2_Grupo14/` | **Fase 2**, que se entrega el 03-10-2026: plantilla del informe, manuales de usuario MU-00 a MU-03, datos maestros en Excel, imágenes, marca, guion de videos y demo, y presentación |
 
 Para empezar con la Fase 2, abrí `Entrega_Fase2_Grupo14/LEEME_PRIMERO.docx`. La repartición completa está en `Entrega_Fase2_Grupo14/_Referencia/reparticion_fase2.md`.
