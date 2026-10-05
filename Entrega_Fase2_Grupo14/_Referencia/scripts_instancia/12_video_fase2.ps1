@@ -2,8 +2,8 @@
     RutaMoto - Fase 2 - Video: cadena de suministros, carga y compras
     Alberto Josue Hernandez Armas, carne 201903553
 
-    Conduce la pantalla sola, con los tiempos del guion
-    (entregables_fase2\guion_video_carga_y_compras.md). Vos solo hablas.
+    Conduce la pantalla sola, con los tiempos del guion. Vos solo hablas.
+    Duracion: 9 minutos y 15 segundos.
 
         (sin parametros)  corrida con los tiempos del guion
         -Manual           espera ENTER entre bloque y bloque
@@ -45,10 +45,10 @@ public class ModoV2 {
 try { [ModoV2]::SinQuickEdit() } catch { }
 
 $ErrorActionPreference = 'Continue'
-$Base = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
-$Raiz = Split-Path -Parent $Base
-$CapDir = Join-Path $Raiz 'capturas_fase2'
+$Base  = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$Raiz  = Split-Path -Parent $Base
 $Excel = Join-Path $Raiz 'repositorio_grupo\SOG-G14-Proyecto\Entrega_Fase2_Grupo14\3_Archivos_Datos\RutaMoto_datos_maestros_Fase2.xlsx'
+$CapDir = Join-Path $Raiz 'capturas_fase2'
 
 $exeChrome = @("$env:ProgramFiles\Google\Chrome\Application\chrome.exe",
                "${env:ProgramFiles(x86)}\Google\Chrome\Application\chrome.exe",
@@ -57,7 +57,7 @@ $exeChrome = @("$env:ProgramFiles\Google\Chrome\Application\chrome.exe",
 if (-not $exeChrome) { Write-Host "No se encontro Chrome." -ForegroundColor Red; exit 1 }
 
 try { Invoke-WebRequest -Uri 'http://localhost:8069/web/login' -UseBasicParsing -TimeoutSec 8 | Out-Null }
-catch { Write-Host "Odoo no responde. Corre primero 09_reanudar.ps1" -ForegroundColor Red; exit 1 }
+catch { Write-Host "Odoo no responde en el puerto 8069. Corre primero 09_reanudar.ps1" -ForegroundColor Red; exit 1 }
 
 $reloj = [System.Diagnostics.Stopwatch]::StartNew()
 $primeraVentana = $true
@@ -89,15 +89,13 @@ function Bloque([string]$titulo) {
     Write-Host ("  [{0}]  {1}" -f (Reloj), $titulo) -ForegroundColor Cyan
 }
 
-function Vista([string]$ruta, [string]$queSeVe) {
-    Write-Host ("          {0}" -f $queSeVe) -ForegroundColor Gray
-    $url = $Odoo + $ruta
+function AbrirEnChrome([string]$destino) {
     if ($primeraVentana) {
-        Start-Process $exeChrome -ArgumentList '--new-window', $url | Out-Null
+        Start-Process $exeChrome -ArgumentList '--new-window', $destino | Out-Null
         $script:primeraVentana = $false
         Start-Sleep -Seconds 3
     } else {
-        Start-Process $exeChrome -ArgumentList $url | Out-Null
+        Start-Process $exeChrome -ArgumentList $destino | Out-Null
         Start-Sleep -Seconds 2
     }
     $v = Get-Process chrome -ErrorAction SilentlyContinue |
@@ -108,28 +106,19 @@ function Vista([string]$ruta, [string]$queSeVe) {
     }
 }
 
-function Imagen([string]$archivo, [string]$queSeVe) {
+function Vista([string]$ruta, [string]$queSeVe) {
     Write-Host ("          {0}" -f $queSeVe) -ForegroundColor Gray
+    AbrirEnChrome ($Odoo + $ruta)
+}
+
+function Imagen([string]$archivo, [string]$queSeVe) {
     $ruta = Join-Path $CapDir $archivo
     if (-not (Test-Path $ruta)) {
-        Write-Host ("          NO SE ENCONTRO {0}" -f $ruta) -ForegroundColor Red
+        Write-Host ("          FALTA la imagen {0}" -f $archivo) -ForegroundColor Red
         return
     }
-    $url = 'file:///' + ($ruta -replace '\\','/')
-    if ($primeraVentana) {
-        Start-Process $exeChrome -ArgumentList '--new-window', $url | Out-Null
-        $script:primeraVentana = $false
-        Start-Sleep -Seconds 3
-    } else {
-        Start-Process $exeChrome -ArgumentList $url | Out-Null
-        Start-Sleep -Seconds 2
-    }
-    $v = Get-Process chrome -ErrorAction SilentlyContinue |
-         Where-Object { $_.MainWindowHandle -ne 0 } | Select-Object -First 1
-    if ($v) {
-        [void][VentV2]::ShowWindow($v.MainWindowHandle, 3)
-        [void][VentV2]::SetForegroundWindow($v.MainWindowHandle)
-    }
+    Write-Host ("          {0}" -f $queSeVe) -ForegroundColor Gray
+    AbrirEnChrome ('file:///' + ($ruta -replace '\\','/'))
 }
 
 Clear-Host
@@ -151,7 +140,7 @@ EsperarHasta 30
 # --- 0:30  El archivo de datos maestros --------------------------------------
 Bloque "El archivo de datos maestros"
 if (-not $SinExcel -and (Test-Path $Excel)) {
-    Write-Host "          abriendo el Excel: hojas, columnas azules y hoja Cuadre" -ForegroundColor Gray
+    Write-Host "          el Excel: hojas en orden de dependencia y hoja Cuadre" -ForegroundColor Gray
     Start-Process $Excel | Out-Null
 } else {
     Write-Host "          mostra el Excel (hojas, columnas azules y hoja Cuadre)" -ForegroundColor Yellow
@@ -167,11 +156,11 @@ EsperarHasta 128
 Vista "/odoo/action-287" "terminos de pago, con el de 50 y 50"
 EsperarHasta 150
 
-# --- 2:30  La importacion y la validacion previa -----------------------------
+# --- 2:30  El asistente de importacion y la validacion previa ----------------
 Bloque "El asistente de importacion y la validacion previa"
-Imagen "07_import_subir_archivo.png" "el importador con el archivo, la hoja y el mapeo de columnas"
+Imagen "07_import_subir_archivo.jpg" "el importador con el archivo, la hoja y el mapeo de columnas"
 EsperarHasta 180
-Imagen "08_import_error_ubicacion.png" "la prueba detiene la importacion: WH/Existencias no existe aqui"
+Imagen "08_import_error_ubicacion.jpg" "la prueba detiene la importacion: WH/Existencias no existe aqui"
 EsperarHasta 210
 
 # --- 3:30  El resultado de la carga ------------------------------------------
@@ -210,11 +199,11 @@ EsperarHasta 420
 
 # --- 7:00  La recepcion y el efecto en el inventario -------------------------
 Bloque "La recepcion y el efecto en el inventario"
-Vista "/odoo/action-361/4" "recepcion RMT/IN/00001 validada, estado Hecho"
+Vista "/odoo/action-361/4"  "recepcion RMT/IN/00001 validada, estado Hecho"
 EsperarHasta 440
 Vista "/odoo/action-391/36" "FRE-001 ahora en 50 unidades"
 EsperarHasta 455
-Vista "/odoo/action-358" "historial: entrada de proveedores a RMT/Existencias"
+Vista "/odoo/action-358"    "historial: entrada de proveedores a RMT/Existencias"
 EsperarHasta 465
 
 # --- 7:45  Productos adicionales y las cinco compras -------------------------
@@ -230,9 +219,9 @@ EsperarHasta 525
 ConsolaAlFrente
 Bloque "Cierre"
 Write-Host ""
-Write-Host "        32 productos  |  5 proveedores  |  35 clientes segmentados" -ForegroundColor Green
+Write-Host "        30 productos importados  |  5 proveedores  |  35 clientes segmentados" -ForegroundColor Green
 Write-Host "        Inventario al costo: Q 38,096 tras la carga, Q 43,456 tras las compras" -ForegroundColor Green
-Write-Host "        Ciclo de compras demostrado: alerta, solicitud, orden y recepcion" -ForegroundColor Green
+Write-Host "        Ciclo de compras completo: alerta, solicitud, orden y recepcion" -ForegroundColor Green
 Write-Host ""
 EsperarHasta 555
 Write-Host ""
