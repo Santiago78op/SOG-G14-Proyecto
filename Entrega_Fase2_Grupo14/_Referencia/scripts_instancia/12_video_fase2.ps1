@@ -47,6 +47,7 @@ try { [ModoV2]::SinQuickEdit() } catch { }
 $ErrorActionPreference = 'Continue'
 $Base = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $Raiz = Split-Path -Parent $Base
+$CapDir = Join-Path $Raiz 'capturas_fase2'
 $Excel = Join-Path $Raiz 'repositorio_grupo\SOG-G14-Proyecto\Entrega_Fase2_Grupo14\3_Archivos_Datos\RutaMoto_datos_maestros_Fase2.xlsx'
 
 $exeChrome = @("$env:ProgramFiles\Google\Chrome\Application\chrome.exe",
@@ -107,6 +108,30 @@ function Vista([string]$ruta, [string]$queSeVe) {
     }
 }
 
+function Imagen([string]$archivo, [string]$queSeVe) {
+    Write-Host ("          {0}" -f $queSeVe) -ForegroundColor Gray
+    $ruta = Join-Path $CapDir $archivo
+    if (-not (Test-Path $ruta)) {
+        Write-Host ("          NO SE ENCONTRO {0}" -f $ruta) -ForegroundColor Red
+        return
+    }
+    $url = 'file:///' + ($ruta -replace '\\','/')
+    if ($primeraVentana) {
+        Start-Process $exeChrome -ArgumentList '--new-window', $url | Out-Null
+        $script:primeraVentana = $false
+        Start-Sleep -Seconds 3
+    } else {
+        Start-Process $exeChrome -ArgumentList $url | Out-Null
+        Start-Sleep -Seconds 2
+    }
+    $v = Get-Process chrome -ErrorAction SilentlyContinue |
+         Where-Object { $_.MainWindowHandle -ne 0 } | Select-Object -First 1
+    if ($v) {
+        [void][VentV2]::ShowWindow($v.MainWindowHandle, 3)
+        [void][VentV2]::SetForegroundWindow($v.MainWindowHandle)
+    }
+}
+
 Clear-Host
 ConsolaAlFrente
 
@@ -142,13 +167,11 @@ EsperarHasta 128
 Vista "/odoo/action-287" "terminos de pago, con el de 50 y 50"
 EsperarHasta 150
 
-# --- 2:30  La importacion y la validacion previa (lo haces vos) --------------
-Bloque "Importacion y validacion previa  ---  AHORA LO HACES VOS"
-Write-Host ""
-Write-Host "   Inventario > Productos > Productos > engranaje > Importar registros" -ForegroundColor Yellow
-Write-Host "   Subi el Excel, elegi la hoja 1_Productos, mostra el mapeo" -ForegroundColor Yellow
-Write-Host "   y pulsa PROBAR.  NO pulses Importar: los datos ya estan cargados." -ForegroundColor Yellow
-Write-Host ""
+# --- 2:30  La importacion y la validacion previa -----------------------------
+Bloque "El asistente de importacion y la validacion previa"
+Imagen "07_import_subir_archivo.png" "el importador con el archivo, la hoja y el mapeo de columnas"
+EsperarHasta 180
+Imagen "08_import_error_ubicacion.png" "la prueba detiene la importacion: WH/Existencias no existe aqui"
 EsperarHasta 210
 
 # --- 3:30  El resultado de la carga ------------------------------------------

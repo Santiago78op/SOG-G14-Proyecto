@@ -23,8 +23,9 @@ cd "$env:USERPROFILE\OneDrive\Escritorio\cys\geren1fase1proyecto\odoo-docker\scr
 powershell -ExecutionPolicy Bypass -File .\12_video_fase2.ps1
 ```
 
-Con `-Manual` el script espera un ENTER entre bloque y bloque, por si preferís controlar vos
-el ritmo.
+El script es automático de punta a punta: no tenés que hacer un solo clic. Con `-Manual` espera
+un ENTER entre bloque y bloque, por si preferís controlar vos el ritmo, y con `-SinExcel` no
+abre el archivo de datos maestros.
 
 ---
 
@@ -73,22 +74,28 @@ el ritmo.
 > ciento de anticipo y cincuenta por ciento contra entrega, con dos líneas de cincuenta por
 > ciento cada una.
 
-### 2:30 — La importación y la validación previa
+### 2:30 — El asistente de importación y la validación previa
 
-> Este es el asistente de importación. Se sube el archivo, se elige la hoja, y Odoo propone
-> un campo para cada columna. Las que no reconoce se asignan a mano con la ayuda de la hoja
-> Diccionario del propio archivo.
+En pantalla aparecen dos capturas del importador, las mismas que están en el manual. No se
+repite la importación en cámara a propósito: volver a importar duplicaría el catálogo.
+
+> Este es el asistente de importación. Se sube el archivo, se elige la hoja, y Odoo propone un
+> campo de la base para cada columna. Donde no acierta se elige a mano, con la ayuda de la hoja
+> Diccionario del propio archivo, que trae el nombre técnico de cada campo.
 >
-> Y este es el botón que de verdad importa: **Probar**. Hace toda la validación contra la
-> base y deshace la transacción, así que si algo está mal no se escribe nada y la base queda
-> limpia. Es la diferencia entre corregir una columna y restaurar un respaldo.
+> Y este es el botón que de verdad importa: **Probar**. Ejecuta la importación completa contra
+> la base y después deshace la transacción, así que si algo está mal no se escribe nada y la
+> base queda limpia. Es la diferencia entre corregir una columna y restaurar un respaldo.
 >
-> Aquí está un error real que salió en esta carga. La hoja de existencias traía la ubicación
-> escrita como WH barra Existencias, que es el código por omisión de Odoo. Nuestra bodega se
-> llama Bodega Central RutaMoto y su código es RMT desde la Fase 1, así que la ubicación real
-> es RMT barra Existencias y la validación lo rechazó en las treinta filas. Como la instancia
-> tiene una sola bodega, la columna se dejó en «No importar» y Odoo asigna la ubicación por
-> omisión, que es justamente la correcta. La prueba vuelve a pasar sin errores.
+> Esta segunda pantalla es un error real de esta carga, y es la razón por la que ese botón
+> existe. La hoja de existencias traía la ubicación escrita como WH barra Existencias, que es
+> el código por omisión de Odoo. Nuestra bodega se llama Bodega Central RutaMoto y su código es
+> RMT desde la Fase 1, así que la ubicación real es RMT barra Existencias. La validación
+> rechazó las treinta filas y no escribió nada.
+>
+> Como la instancia tiene una sola bodega, la columna se dejó en «No importar»: Odoo asigna
+> entonces la ubicación por omisión del almacén, que es justamente la correcta. Se prefirió eso
+> a editar el archivo, porque el Excel ya estaba repartido entre los cuatro integrantes.
 
 ### 3:30 — El resultado de la carga
 
