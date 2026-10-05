@@ -5,7 +5,7 @@ aliases: [Excel, Datos maestros, Cuadre, Carga]
 
 # Datos maestros y cuadre
 
-Archivo: `Entrega_Fase2_Grupo14/3_Archivos_Datos/RutaMoto_datos_maestros_Fase2.xlsx`. **No se ha importado todavía** (al 2026-09-28).
+Archivo: `Entrega_Fase2_Grupo14/3_Archivos_Datos/RutaMoto_datos_maestros_Fase2.xlsx`. **Importado el 2026-10-05.** Los siete bloques entraron sin errores y los conteos cuadran contra la hoja «Cuadre».
 
 ## Hojas, en orden de importación
 
@@ -33,14 +33,15 @@ Además: `LEEME` (instrucciones), `Diccionario` (encabezado → campo técnico d
 
 **Estado diseñado a propósito al terminar la carga:** LUB-004, FRE-001 y ELE-002 quedan bajo su mínimo, y LLA-002 en cero. Son los que disparan las alertas y las compras de la 12.2. Quiebre de stock: 1 de 36 = **2.8 %**. Al cierre de la fase, con 38 SKU y LLA-002 todavía en cero, da **2.6 %**. Ambos dentro de la meta ≤ 5 %.
 
-## Antes de importar (lo frágil)
+## Lo frágil, ya resuelto (2026-10-05)
 
-1. Crear las 6 categorías **sin categoría padre**: si cuelgan de «All», el nombre deja de coincidir.
-2. Crear las 4 etiquetas de segmento y el término de pago «50% anticipo, 50% contra entrega».
-3. Comprobar el nombre de la ubicación: el Excel dice `WH/Existencias`.
-4. Comprobar cómo se llaman los términos de pago en el idioma de la base.
-5. **Probar antes de Importar** siempre, y respaldar antes de la primera importación.
-6. LUB-001 ya tiene 24 unidades de la prueba de la Fase 1. El inventario físico importa cantidades **contadas**, así que debería quedar en 60 y no en 84. Verificarlo.
+1. Las 6 categorías se crearon **sin categoría padre**. Confirmado: si cuelgan de «All» el nombre completo deja de coincidir.
+2. Las 4 etiquetas y el término «50% anticipo, 50% contra entrega» existen. Ese término lleva **dos líneas porcentuales de 50**: Odoo 18 ya no acepta el tipo de línea «saldo».
+3. **La ubicación del Excel no coincide.** El archivo dice `WH/Existencias` y la instancia tiene `RMT/Existencias`. La columna se dejó en **«No importar»** y Odoo asigna la ubicación por omisión del almacén, que es la correcta. El archivo no se modificó.
+4. Los términos de pago venían en inglés y se renombraron a los nombres del archivo.
+5. **Probar antes de Importar**: así apareció el problema de la ubicación, sin escribir nada en la base.
+6. LUB-001 ya existía desde la Fase 1. Se importaron 29 filas y se completó la ficha existente; su cantidad contada de 60 se aplicó sobre lo que había y quedó en **60**.
+7. Después de importar la hoja 2 hay que pulsar **Aplicar**, o las cantidades quedan contadas y el inventario sigue en cero.
 
 ## Imágenes
 
