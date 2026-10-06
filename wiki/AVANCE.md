@@ -7,7 +7,16 @@ aliases: [Estado, Dónde quedamos, Progreso]
 
 > Fuente de verdad del progreso. Se actualiza al cerrar cada sesión de trabajo. Fechas siempre absolutas.
 
-## 📌 Último turno — 2026-10-05 (rol 1): rama `entrega/fase2` con solo los entregables
+## 📌 Último turno — 2026-10-05 (rol 1): secciones de Alberto pasadas al informe
+
+**Próximo paso:** sin cambios; sigue faltando todo lo del rol 2. Llevar este cambio a `entrega/fase2` cuando se haga commit.
+
+- Las secciones **5, 6.2, 6.4 y 7** (con 7.1, 7.2 y 7.3) de `informe_fase2_secciones_Alberto_Hernandez.docx` ya están en `informe_fase2_PLANTILLA.docx`, con sus dos figuras (el error de ubicación de la importación y el historial de movimientos). El `.docx` de Alberto se dejó como está.
+- Se conservaron las franjas grises de rol y la 5.1 del rol 4. En esas secciones se borró lo gris de instrucción, **menos en la 6.4**: ahí la columna «Resultado obtenido» solo tiene la parte de la carga masiva (30 productos, Q 38,096.00, 5 proveedores, 12/11/7/5 clientes, 32 reglas) y el rol 2 tiene que completarla con la carga manual.
+- Los pies que Alberto numeró (Tabla 1 a 8, Figura 1 y 2) volvieron a «__»: la numeración se hace al final, sobre el informe completo.
+- El tamaño de letra se igualó al de la plantilla: su archivo traía el cuerpo a 10 pt y las celdas llenadas a 12 pt, al revés que el resto del informe.
+
+## 📌 Turno anterior — 2026-10-05 (rol 1): rama `entrega/fase2` con solo los entregables
 
 **Próximo paso:** sin cambios. El PDF y el ZIP siguen esperando lo del rol 2; los pendientes del rol 1 son los de la tabla del turno de abajo.
 
@@ -34,7 +43,7 @@ aliases: [Estado, Dónde quedamos, Progreso]
 | 4.2 Correcciones a la Fase 1 | 🟡 borrar la fila vacía o llenarla si llega la nota |
 | 14 Conclusiones | ⬜ espera la medición del rol 2 |
 | 16 Anexos | 🟡 faltan E (video del rol 2) y G (nombre del respaldo) |
-| Pasar a la plantilla las secciones de Alberto (5, 6.2, 6.4 y 7) | ⬜ están en un `.docx` aparte |
+| Pasar a la plantilla las secciones de Alberto (5, 6.2, 6.4 y 7) | ✅ hecho el 2026-10-05; la 6.4 espera la parte del rol 2 |
 | Unir manuales, numerar tablas y figuras, borrar lo gris, PDF y ZIP | ⬜ |
 
 ### Preguntas abiertas
