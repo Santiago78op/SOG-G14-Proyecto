@@ -8,3 +8,9 @@ Cerebro versionado dentro del repo `SOG-G14-Proyecto` (`wiki/`), con el mismo pa
 ## [2026-10-05] ingest | Carga masiva importada y ciclo de compras cerrado
 Las siete hojas del Excel entraron en Odoo en orden de dependencia: 30 productos con imagen, 30 líneas de existencia aplicadas por Q 38,096.00, 30 reglas de reabastecimiento, 5 proveedores con sus 5 contactos, 30 líneas de lista de precios de proveedor y 35 clientes segmentados 12/11/7/5. Todo cuadra contra [[Datos maestros y cuadre]]. Se crearon LUB-007 y ELE-007 desde el sistema y las cinco compras de [[Plan de compras y cotizaciones]] quedaron en sus estados: P00001, P00002 y P00003 recibidas, P00004 confirmada sin recibir y P00005 como solicitud enviada. Tres defectos del archivo aparecieron en la validación previa y están documentados en [[AVANCE]] y [[Decisiones y límites]]: la ubicación `WH/Existencias`, los términos de pago en inglés y LUB-001 duplicado.
 
+
+## [2026-10-05] ingest | Sección 6.1, bibliografía y enlaces de dos videos en el informe
+El rol 1 redactó la 6.1 (estructura del Excel y cuadre de Q 45,000, tomados de [[Datos maestros y cuadre]]) y completó la bibliografía con 9 páginas de la documentación de Odoo 18, la de Mailpit y el enunciado, todas comprobadas ese día. En los anexos quedaron los enlaces de Drive de los videos del rol 3 (D) y del rol 4 (F). Faltan el video del rol 2 y el nombre del respaldo. Pendientes y preguntas abiertas en [[AVANCE]].
+
+## [2026-10-05] schema | Rama `entrega/fase2` con solo los entregables
+`feature/201905884_Informe` se unió a `main` y de ahí salió `entrega/fase2`, que conserva únicamente el informe, los manuales, los archivos de datos y la presentación de la Fase 2 (sección 4.4 del enunciado). No se une de vuelta a `main`. Qué entró y qué quedó fuera, en [[AVANCE]].
