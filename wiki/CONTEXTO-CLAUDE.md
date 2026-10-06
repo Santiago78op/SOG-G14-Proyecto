@@ -53,7 +53,7 @@ Odoo 18.0 Community como ERP y CRM, con eCommerce, sobre PostgreSQL 16, en Docke
 |---|---|
 | Fase 1 entregada | `Entrega_Fase1_Grupo14/` (+ `_Referencia/concepto_empresa.md`, la premisa del caso) |
 | Fase 2: guía del equipo | `Entrega_Fase2_Grupo14/LEEME_PRIMERO.docx` |
-| Fase 2: informe | `Entrega_Fase2_Grupo14/1_Informe/informe_fase2_PLANTILLA.docx` (secciones 1–4 ya redactadas) |
+| Fase 2: informe | `Entrega_Fase2_Grupo14/1_Informe/Informe_Fase2_Grupo14_RutaMoto.docx` y su `.pdf` |
 | Fase 2: manuales | `Entrega_Fase2_Grupo14/2_Manuales_Usuario/` MU-00 a MU-03 |
 | Fase 2: Excel, imágenes y marca | `Entrega_Fase2_Grupo14/3_Archivos_Datos/` |
 | Fase 2: guion de videos y demo | `Entrega_Fase2_Grupo14/4_Videos/guion_videos_fase2.md` |

@@ -17,3 +17,6 @@ El rol 1 redactó la 6.1 (estructura del Excel y cuadre de Q 45,000, tomados de 
 
 ## [2026-10-05] ingest | Secciones del rol 3 pasadas al informe
 Las secciones 5, 6.2, 6.4 y 7 de Alberto se pasaron de su `.docx` a `informe_fase2_PLANTILLA.docx`, con sus dos figuras. La tabla de la 6.4 quedó con la parte de la carga masiva y espera la del rol 2. Detalle en [[AVANCE]].
+
+## [2026-10-05] ingest | Informe final de la Fase 2 armado y manuales unidos
+Con lo del rol 2 en el repo, el informe quedó como `Informe_Fase2_Grupo14_RutaMoto` (`.docx` y `.pdf`, 43 páginas): sin páginas de trabajo ni texto gris, con tablas y figuras numeradas, conclusiones redactadas y las capturas del rol 4 tomadas del MU-03. Los cuatro manuales se unieron en `Manuales_Usuario_Fase2_Grupo14.pdf`. La campaña se corrigió a 12 destinatarios, que es lo que muestran las capturas. Falta solo el enlace del video del rol 2 en el anexo E. Detalle y puntos flojos en [[AVANCE]].

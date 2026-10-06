@@ -7,7 +7,40 @@ aliases: [Estado, Dónde quedamos, Progreso]
 
 > Fuente de verdad del progreso. Se actualiza al cerrar cada sesión de trabajo. Fechas siempre absolutas.
 
-## 📌 Último turno — 2026-10-05 (rol 1): secciones de Alberto pasadas al informe
+## 📌 Último turno — 2026-10-05 (rol 1): informe final armado, manuales unidos y rama de entrega lista
+
+**Próximo paso:** poner el enlace del video del rol 2 en el anexo E de `Informe_Fase2_Grupo14_RutaMoto.docx`, volver a exportar el PDF, comprimir `Entrega_Fase2_Grupo14/` desde la rama `entrega/fase2` y subir a UEDI. Es lo único que falta del informe.
+
+### Qué se hizo
+
+- El rol 2 subió el MU-02 y `informe_fase2_Jemima.docx`, que es el informe completo con sus secciones (6.3, 6.4, 8, 9 y 13) escritas sobre la versión que ya tenía las del rol 3. Se tomó como base.
+- El informe final es **`1_Informe/Informe_Fase2_Grupo14_RutaMoto.docx`** y su **`.pdf`** (43 páginas). Sustituye a `informe_fase2_PLANTILLA.docx`, que ya no existe.
+- Se borraron las tres páginas de trabajo y todo el texto gris de instrucción. Las franjas grises de rol se dejaron: son la evidencia de autoría por sección.
+- Tablas (24) y figuras (14) numeradas; índice con las páginas del PDF.
+- **Fecha:** carátula y alcance pasaron del 3 al **5 de octubre de 2026** (decisión del rol 1).
+- **4.1:** las cinco actividades con «Cierre el 5 oct» y «Terminada», más una oración que dice que cerraron después de lo planificado. Es lo que respalda el repositorio; no se escribió una causa.
+- **4.2:** se quitó la fila vacía. **Anexos:** se quitó la fila G (respaldo), porque nadie dio el nombre del archivo.
+- **14 Conclusiones:** cinco párrafos redactados a partir de las secciones del informe. **El rol 1 tiene que leerlos antes de subir.**
+- **Capturas del rol 4:** las siete figuras de las secciones 5.1, 10, 11 y 12 estaban como recuadro vacío. Se tomaron del MU-03.
+- **Manuales:** `2_Manuales_Usuario/Manuales_Usuario_Fase2_Grupo14.pdf` une MU-00 (exportado ahora desde su `.docx`), MU-01, MU-02 y MU-03: 100 páginas, con marcadores por manual.
+- Se quitó del repo `~WRL0364.tmp`, un temporal de Word que entró con el commit del rol 2.
+
+### Correcciones de fondo que hay que conocer
+
+- **La campaña llegó a 12 repartidores, no a 13.** La sección 11 decía 13 destinatarios y 13 / 13 / 0, pero las capturas del propio rol 4 muestran «12 correos enviados», el filtro con 12 registros y 12 mensajes en Mailpit. Se corrigió a 12 / 12 / 0, con la aclaración de que el segmento cerró en 13 al sumarse el repartidor de la carga manual. La hora de envío (5:09 p. m. del 5 de octubre) sale de la misma captura.
+- **La captura del pipeline muestra las cinco oportunidades en «Nuevo lead»**, no repartidas por etapa: no hay ninguna captura del tablero con las cinco ya movidas. El pie de la figura lo dice así. La tabla de etapas finales es del rol 4 y no se tocó.
+- **13.1:** los dos indicadores que el rol 2 dejó «Pendiente» se llenaron con lo documentado: exactitud de la carga masiva 100 % (165 registros, con la salvedad de LUB-001) y entrega de la campaña 100 % (12 de 12).
+- **13.2, paso 6 (CRM):** quedó como «No verificado en esta fase», porque las oportunidades del pipeline son de clientes distintos de los cuatro cotizados.
+
+### Lo que sigue flojo y no se pudo resolver sin el sistema
+
+- **8.2:** las cotizaciones 2, 3 y 4 dicen «No visible en la evidencia» en el número de Odoo, y la 4 dice «se debe comprobar también el estado final». Es texto del rol 2; solo ella o la instancia pueden completarlo.
+- **9.2:** la fecha prevista de P00004 dice «No visible en la vista consolidada».
+- **MU-03:** sus 18 pies de figura siguen como «Figura __».
+- **La presentación** sigue siendo `presentacion_fase2_PLANTILLA.pptx`.
+- **El PDF del informe se exportó con LibreOffice**, no con Word (no hay Word en la máquina del rol 1). El escudo de la carátula se dejó como marca de agua dentro de la imagen para que se vea igual en los dos.
+
+## 📌 Turno anterior — 2026-10-05 (rol 1): secciones de Alberto pasadas al informe
 
 **Próximo paso:** sin cambios; sigue faltando todo lo del rol 2. El informe actualizado ya está también en `entrega/fase2`.
 
