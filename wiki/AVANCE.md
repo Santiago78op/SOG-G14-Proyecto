@@ -9,7 +9,7 @@ aliases: [Estado, Dónde quedamos, Progreso]
 
 ## 📌 Último turno — 2026-10-05 (rol 1): secciones de Alberto pasadas al informe
 
-**Próximo paso:** sin cambios; sigue faltando todo lo del rol 2. Llevar este cambio a `entrega/fase2` cuando se haga commit.
+**Próximo paso:** sin cambios; sigue faltando todo lo del rol 2. El informe actualizado ya está también en `entrega/fase2`.
 
 - Las secciones **5, 6.2, 6.4 y 7** (con 7.1, 7.2 y 7.3) de `informe_fase2_secciones_Alberto_Hernandez.docx` ya están en `informe_fase2_PLANTILLA.docx`, con sus dos figuras (el error de ubicación de la importación y el historial de movimientos). El `.docx` de Alberto se dejó como está.
 - Se conservaron las franjas grises de rol y la 5.1 del rol 4. En esas secciones se borró lo gris de instrucción, **menos en la 6.4**: ahí la columna «Resultado obtenido» solo tiene la parte de la carga masiva (30 productos, Q 38,096.00, 5 proveedores, 12/11/7/5 clientes, 32 reglas) y el rol 2 tiene que completarla con la carga manual.
@@ -21,9 +21,9 @@ aliases: [Estado, Dónde quedamos, Progreso]
 **Próximo paso:** sin cambios. El PDF y el ZIP siguen esperando lo del rol 2; los pendientes del rol 1 son los de la tabla del turno de abajo.
 
 - `feature/201905884_Informe` se unió a `main`.
-- Se creó la rama **`entrega/fase2`** a partir de `main`. Contiene solo lo que pide la sección 4.4 del enunciado, en el estado en que está hoy: `1_Informe/` (el informe y las secciones de Alberto, que todavía no se pasaron a la plantilla), `2_Manuales_Usuario/` (MU-00, MU-01, MU-03 y el MU-02 en plantilla, porque del rol 2 no hay otra versión), `3_Archivos_Datos/` completo, `4_Videos/` con los dos guiones y `5_Presentacion/` con el `.pptx`.
+- Se creó la rama **`entrega/fase2`** a partir de `main`. Contiene solo lo que pide la sección 4.4 del enunciado, en el estado en que está hoy: `1_Informe/` (solo el informe: el `.docx` y el `.pdf` sueltos de Alberto se quitaron de la rama cuando sus secciones entraron en la plantilla, y siguen en `main`), `2_Manuales_Usuario/` (MU-00, MU-01, MU-03 y el MU-02 en plantilla, porque del rol 2 no hay otra versión), `3_Archivos_Datos/` completo, `4_Videos/` con los dos guiones y `5_Presentacion/` con el `.pptx`.
 - Quedaron fuera de esa rama: `wiki/`, `CLAUDE.md`, el enunciado, la Fase 1, `_Referencia/`, el LEEME, el manual de la demo, las plantillas ya sustituidas del MU-01 y el MU-03 y la carpeta `capturas_MU-01/` (las capturas ya están dentro del manual). Los videos en sí se entregan como enlace de Drive en los anexos del informe; `4_Videos/` se conserva con los guiones para mantener la misma estructura de carpetas de la Fase 1.
-- **Se sigue trabajando en `main`** y en las ramas `feature/`. `entrega/fase2` no se une de vuelta a `main`: borraría el cerebro y la Fase 1. Las imágenes del Excel apuntan a `main`, así que tampoco se puede mover nada de `3_Archivos_Datos/imagenes_productos/` allá.
+- **Se sigue trabajando en `main`** y en las ramas `feature/`. `entrega/fase2` no se une de vuelta a `main`: borraría el cerebro y la Fase 1. Esa rama tampoco tiene `.gitignore` (se quitó para que el paquete traiga solo la carpeta de entrega), así que ahí hay que cuidar de no agregar `.venv/` ni `_Paquetes_para_integrantes/`. Las imágenes del Excel apuntan a `main`, así que tampoco se puede mover nada de `3_Archivos_Datos/imagenes_productos/` allá.
 
 ## 📌 Turno anterior — 2026-10-05 (rol 1): sección 6.1, bibliografía y enlaces de dos videos
 
