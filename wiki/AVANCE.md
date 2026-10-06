@@ -14,6 +14,7 @@ aliases: [Estado, Dónde quedamos, Progreso]
 ### Manual único y cortes de página
 
 - **`Manuales_Usuario_Fase2_Grupo14` ya no es la unión de cuatro PDF.** Es un solo documento (`.docx` y `.pdf`, 90 páginas) armado con el contenido de MU-00 a MU-03: una carátula, un índice general, numeración de página corrida y los capítulos de cada manual numerados desde 1. Antes traía cuatro carátulas, cuatro índices y páginas en blanco.
+- Las figuras del manual van numeradas de corrido (1 a 74) y las tablas con pie también (1 a 4); las referencias del texto del MU-00 se ajustaron.
 - En el manual y en el informe se ató cada título con su texto, cada paso con su captura y su pie, y las tablas cortas se mantienen enteras, para que los temas no se partan entre páginas.
 - Los `.docx` y `.pdf` individuales de cada manual siguen en `main` como fuente; si alguien corrige uno, hay que volver a armar el unificado.
 
