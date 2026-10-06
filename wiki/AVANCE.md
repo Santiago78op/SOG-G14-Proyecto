@@ -9,7 +9,7 @@ aliases: [Estado, Dónde quedamos, Progreso]
 
 ## 📌 Último turno — 2026-10-05 (rol 1): informe final armado, manuales unidos y rama de entrega lista
 
-**Próximo paso:** poner el enlace del video del rol 2 en el anexo E de `Informe_Fase2_Grupo14_RutaMoto.docx`, volver a exportar el PDF, comprimir `Entrega_Fase2_Grupo14/` desde la rama `entrega/fase2` y subir a UEDI. Es lo único que falta del informe.
+**Próximo paso:** subir a UEDI el `Entrega_Fase2_Grupo14.zip`, que se armó desde la rama `entrega/fase2`. El anexo E ya tiene el enlace del video del rol 2 (es una carpeta de Drive, no un archivo) y el PDF se volvió a exportar.
 
 ### Qué se hizo
 
@@ -36,7 +36,7 @@ aliases: [Estado, Dónde quedamos, Progreso]
 
 - **8.2:** las cotizaciones 2, 3 y 4 dicen «No visible en la evidencia» en el número de Odoo, y la 4 dice «se debe comprobar también el estado final». Es texto del rol 2; solo ella o la instancia pueden completarlo.
 - **9.2:** la fecha prevista de P00004 dice «No visible en la vista consolidada».
-- **MU-03:** sus 18 pies de figura siguen como «Figura __».
+- **MU-03:** sus pies ya están numerados (15 figuras y 3 tablas) y su PDF se volvió a exportar con LibreOffice; el anterior venía de Google Docs. Sigue con el texto gris de «Ruta sugerida», los recuadros punteados y la fecha del 3 de octubre, que son del rol 4.
 - **La presentación** sigue siendo `presentacion_fase2_PLANTILLA.pptx`.
 - **El PDF del informe se exportó con LibreOffice**, no con Word (no hay Word en la máquina del rol 1). El escudo de la carátula se dejó como marca de agua dentro de la imagen para que se vea igual en los dos.
 
