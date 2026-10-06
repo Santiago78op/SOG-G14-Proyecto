@@ -7,7 +7,34 @@ aliases: [Estado, Dónde quedamos, Progreso]
 
 > Fuente de verdad del progreso. Se actualiza al cerrar cada sesión de trabajo. Fechas siempre absolutas.
 
-## 📌 Último turno — 2026-10-05: carga masiva importada y ciclo de compras cerrado
+## 📌 Último turno — 2026-10-05 (rol 1): sección 6.1, bibliografía y enlaces de dos videos
+
+**Próximo paso:** el rol 1 sigue bloqueado para armar el PDF y el ZIP hasta que llegue lo del rol 2 (MU-02, secciones 6.3, 8, 9 y 13, y su video). Mientras tanto: pasar las secciones de Alberto a la plantilla del informe y pedir el nombre del respaldo para el anexo G.
+
+### Lo que cambió en `informe_fase2_PLANTILLA.docx`
+
+- **6.1 Archivo de datos maestros**, redactada: estructura del Excel, por qué hay una hoja por modelo de Odoo, columnas importables e informativas, hojas de apoyo y el cuadre de Q 45,000.
+- **Bibliografía**, completa: 9 páginas de la documentación de Odoo 18, la de Mailpit y el enunciado. Las URL se comprobaron el 2026-10-05 (todas responden) y esa es la fecha de consulta que quedó escrita. La entrada que ya estaba decía «Import data into Odoo»; la página se llama «Export and import data» y se corrigió.
+- **Anexos:** D = video de carga y compras (rol 3), F = video del CRM (rol 4). Los dos enlaces abren sin sesión iniciada.
+
+### Pendiente del rol 1
+
+| Pieza | Estado |
+|---|---|
+| 4.1 Avance contra el cronograma | 🟡 faltan las columnas Real y Estado |
+| 4.2 Correcciones a la Fase 1 | 🟡 borrar la fila vacía o llenarla si llega la nota |
+| 14 Conclusiones | ⬜ espera la medición del rol 2 |
+| 16 Anexos | 🟡 faltan E (video del rol 2) y G (nombre del respaldo) |
+| Pasar a la plantilla las secciones de Alberto (5, 6.2, 6.4 y 7) | ⬜ están en un `.docx` aparte |
+| Unir manuales, numerar tablas y figuras, borrar lo gris, PDF y ZIP | ⬜ |
+
+### Preguntas abiertas
+
+- **Los videos no tienen el nombre acordado.** En Drive se llaman `geren1_fase2_parte_alberto_hernandez.mp4` y `Screen_Recording_20261005_190311_Gmail.mp4`. El segundo, por el nombre, puede ser solo la grabación del correo recibido y no el recorrido completo del CRM: **nadie lo ha revisado todavía.**
+- **La fecha de entrega.** [[CONTEXTO-CLAUDE]] dice sábado 03-10-2026 y el trabajo sigue el 05-10. Si se movió, hay que corregirla ahí y en el alcance del informe, que dice «entre el 21 de septiembre y el 3 de octubre».
+- **Del rol 2 no hay nada en el repo.**
+
+## 📌 Turno anterior — 2026-10-05: carga masiva importada y ciclo de compras cerrado
 
 **Próximo paso:** el resto del equipo ya puede trabajar sobre la instancia. Falta la carga manual (Accesorios y equipaje, AccesoRuta y 5 clientes), las cotizaciones, el informe de inventario, las plantillas de correo, la campaña y el pipeline. Entrar por el túnel con el usuario propio, no con `admin`.
 
