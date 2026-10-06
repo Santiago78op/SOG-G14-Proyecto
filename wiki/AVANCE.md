@@ -11,6 +11,12 @@ aliases: [Estado, Dónde quedamos, Progreso]
 
 **Próximo paso:** subir a UEDI el `Entrega_Fase2_Grupo14.zip`, que se armó desde la rama `entrega/fase2`. El anexo E ya tiene el enlace del video del rol 2 (es una carpeta de Drive, no un archivo) y el PDF se volvió a exportar.
 
+### Manual único y cortes de página
+
+- **`Manuales_Usuario_Fase2_Grupo14` ya no es la unión de cuatro PDF.** Es un solo documento (`.docx` y `.pdf`, 90 páginas) armado con el contenido de MU-00 a MU-03: una carátula, un índice general, numeración de página corrida y los capítulos de cada manual numerados desde 1. Antes traía cuatro carátulas, cuatro índices y páginas en blanco.
+- En el manual y en el informe se ató cada título con su texto, cada paso con su captura y su pie, y las tablas cortas se mantienen enteras, para que los temas no se partan entre páginas.
+- Los `.docx` y `.pdf` individuales de cada manual siguen en `main` como fuente; si alguien corrige uno, hay que volver a armar el unificado.
+
 ### Limpieza final antes de empaquetar
 
 - **Informe:** se quitaron las notas de trabajo que quedaban en las secciones 8.2, 9.2 y 13 («No visible en la evidencia», «se debe comprobar…», «Requiere corrección», «pendientes»). Donde no hay dato dice «No registrado».

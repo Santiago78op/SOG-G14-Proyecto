@@ -26,3 +26,6 @@ El anexo E del informe ya tiene el enlace de Drive del video de cotizaciones e i
 
 ## [2026-10-05] ingest | Limpieza final y presentación terminada
 Se quitaron las notas de trabajo del informe y las frases de plantilla del MU-03, la presentación dejó de ser plantilla (`Presentacion_Fase2_Grupo14.pptx`) y `4_Videos/enlaces_videos.md` reúne los tres enlaces de Drive. Detalle en [[AVANCE]].
+
+## [2026-10-05] ingest | Manual de usuario unificado
+Los cuatro manuales se rearmaron como un solo documento con una carátula, un índice y numeración corrida (90 páginas), y se ajustaron los cortes de página del manual y del informe. Detalle en [[AVANCE]].
