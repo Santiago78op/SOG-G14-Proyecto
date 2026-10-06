@@ -11,3 +11,6 @@ Las siete hojas del Excel entraron en Odoo en orden de dependencia: 30 productos
 
 ## [2026-10-05] ingest | Sección 6.1, bibliografía y enlaces de dos videos en el informe
 El rol 1 redactó la 6.1 (estructura del Excel y cuadre de Q 45,000, tomados de [[Datos maestros y cuadre]]) y completó la bibliografía con 9 páginas de la documentación de Odoo 18, la de Mailpit y el enunciado, todas comprobadas ese día. En los anexos quedaron los enlaces de Drive de los videos del rol 3 (D) y del rol 4 (F). Faltan el video del rol 2 y el nombre del respaldo. Pendientes y preguntas abiertas en [[AVANCE]].
+
+## [2026-10-05] schema | Rama `entrega/fase2` con solo los entregables
+`feature/201905884_Informe` se unió a `main` y de ahí salió `entrega/fase2`, que conserva únicamente el informe, los manuales, los archivos de datos y la presentación de la Fase 2 (sección 4.4 del enunciado). No se une de vuelta a `main`. Qué entró y qué quedó fuera, en [[AVANCE]].

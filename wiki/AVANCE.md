@@ -7,7 +7,16 @@ aliases: [Estado, Dónde quedamos, Progreso]
 
 > Fuente de verdad del progreso. Se actualiza al cerrar cada sesión de trabajo. Fechas siempre absolutas.
 
-## 📌 Último turno — 2026-10-05 (rol 1): sección 6.1, bibliografía y enlaces de dos videos
+## 📌 Último turno — 2026-10-05 (rol 1): rama `entrega/fase2` con solo los entregables
+
+**Próximo paso:** sin cambios. El PDF y el ZIP siguen esperando lo del rol 2; los pendientes del rol 1 son los de la tabla del turno de abajo.
+
+- `feature/201905884_Informe` se unió a `main`.
+- Se creó la rama **`entrega/fase2`** a partir de `main`. Contiene solo lo que pide la sección 4.4 del enunciado, en el estado en que está hoy: `1_Informe/` (el informe y las secciones de Alberto, que todavía no se pasaron a la plantilla), `2_Manuales_Usuario/` (MU-00, MU-01, MU-03 y el MU-02 en plantilla, porque del rol 2 no hay otra versión), `3_Archivos_Datos/` completo y `5_Presentacion/` con el `.pptx`.
+- Quedaron fuera de esa rama: `wiki/`, `CLAUDE.md`, el enunciado, la Fase 1, `_Referencia/`, el LEEME, los guiones, las plantillas ya sustituidas del MU-01 y el MU-03 y la carpeta `capturas_MU-01/` (las capturas ya están dentro del manual). Los videos se entregan como enlace de Drive en los anexos del informe, por eso no hay carpeta `4_Videos/`.
+- **Se sigue trabajando en `main`** y en las ramas `feature/`. `entrega/fase2` no se une de vuelta a `main`: borraría el cerebro y la Fase 1. Las imágenes del Excel apuntan a `main`, así que tampoco se puede mover nada de `3_Archivos_Datos/imagenes_productos/` allá.
+
+## 📌 Turno anterior — 2026-10-05 (rol 1): sección 6.1, bibliografía y enlaces de dos videos
 
 **Próximo paso:** el rol 1 sigue bloqueado para armar el PDF y el ZIP hasta que llegue lo del rol 2 (MU-02, secciones 6.3, 8, 9 y 13, y su video). Mientras tanto: pasar las secciones de Alberto a la plantilla del informe y pedir el nombre del respaldo para el anexo G.
 
