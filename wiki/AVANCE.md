@@ -11,6 +11,14 @@ aliases: [Estado, Dónde quedamos, Progreso]
 
 **Próximo paso:** subir a UEDI el `Entrega_Fase2_Grupo14.zip`, que se armó desde la rama `entrega/fase2`. El anexo E ya tiene el enlace del video del rol 2 (es una carpeta de Drive, no un archivo) y el PDF se volvió a exportar.
 
+### Limpieza final antes de empaquetar
+
+- **Informe:** se quitaron las notas de trabajo que quedaban en las secciones 8.2, 9.2 y 13 («No visible en la evidencia», «se debe comprobar…», «Requiere corrección», «pendientes»). Donde no hay dato dice «No registrado».
+- **MU-03:** fuera las frases de plantilla («Verificá el nombre exacto que muestra tu pantalla…»), «Ruta sugerida» pasó a «Ruta» y se quitaron los recuadros punteados. Índice con las páginas del PDF nuevo. Su entrada 4.1 «Problemas encontrados» sigue sin sección en el cuerpo.
+- **Presentación:** ya no es plantilla. `5_Presentacion/Presentacion_Fase2_Grupo14.pptx` tiene las ocho capturas, la fecha del 5 de octubre, el quiebre de stock (2.8 %), los resultados de los indicadores y los estados reales de las cotizaciones. Se vaciaron las notas del orador.
+- **Videos:** `4_Videos/enlaces_videos.md` con los tres enlaces. En `entrega/fase2` sustituye a los dos guiones, que siguen en `main`.
+- Autor «Grupo 14» en los metadatos de la presentación, del Excel de la demo y del PDF de manuales.
+
 ### Qué se hizo
 
 - El rol 2 subió el MU-02 y `informe_fase2_Jemima.docx`, que es el informe completo con sus secciones (6.3, 6.4, 8, 9 y 13) escritas sobre la versión que ya tenía las del rol 3. Se tomó como base.
@@ -37,7 +45,6 @@ aliases: [Estado, Dónde quedamos, Progreso]
 - **8.2:** las cotizaciones 2, 3 y 4 dicen «No visible en la evidencia» en el número de Odoo, y la 4 dice «se debe comprobar también el estado final». Es texto del rol 2; solo ella o la instancia pueden completarlo.
 - **9.2:** la fecha prevista de P00004 dice «No visible en la vista consolidada».
 - **MU-03:** sus pies ya están numerados (15 figuras y 3 tablas) y su PDF se volvió a exportar con LibreOffice; el anterior venía de Google Docs. Sigue con el texto gris de «Ruta sugerida», los recuadros punteados y la fecha del 3 de octubre, que son del rol 4.
-- **La presentación** sigue siendo `presentacion_fase2_PLANTILLA.pptx`.
 - **El PDF del informe se exportó con LibreOffice**, no con Word (no hay Word en la máquina del rol 1). El escudo de la carátula se dejó como marca de agua dentro de la imagen para que se vea igual en los dos.
 
 ## 📌 Turno anterior — 2026-10-05 (rol 1): secciones de Alberto pasadas al informe

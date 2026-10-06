@@ -23,3 +23,6 @@ Con lo del rol 2 en el repo, el informe quedó como `Informe_Fase2_Grupo14_RutaM
 
 ## [2026-10-05] ingest | Enlace del video del rol 2 y pies del MU-03 numerados
 El anexo E del informe ya tiene el enlace de Drive del video de cotizaciones e inventario y el PDF se regeneró. Los pies del MU-03 se numeraron (15 figuras y 3 tablas), su PDF se volvió a exportar y el PDF unido de manuales se rehízo. Paquete de entrega armado desde `entrega/fase2`.
+
+## [2026-10-05] ingest | Limpieza final y presentación terminada
+Se quitaron las notas de trabajo del informe y las frases de plantilla del MU-03, la presentación dejó de ser plantilla (`Presentacion_Fase2_Grupo14.pptx`) y `4_Videos/enlaces_videos.md` reúne los tres enlaces de Drive. Detalle en [[AVANCE]].
