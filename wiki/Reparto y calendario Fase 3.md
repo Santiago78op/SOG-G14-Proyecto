@@ -18,9 +18,9 @@ Sitio (15) · Integración ERP/CRM/web (15) · BI (10) · Conclusiones con datos
 
 | Rol | Qué hace | Manual | Secciones del informe | Video |
 |---|---|---|---|---|
-| 3 · Alberto | Sitio y configuración, 38 productos publicados, P00004 recibida, carga de la historia | MU-04 | 5, 6.1, 6.3, 9 (con el rol 1) | Sitio y configuración |
-| 2 · Jemima | Pedidos WEB-01 a 08, 10 y 12 por el sitio (flujos A, C, D, E), entregas y portal | MU-05 | 7, 8 | Compra de punta a punta |
-| 4 · Brayan | Flujo B (formulario → lead → cotización → portal: WEB-09 y 11) y reportes BI con tablero | MU-06 | 6.2, 10 | CRM en el sitio y BI |
+| 3 · Alberto | Sitio y configuración, 38 productos publicados, P00004 recibida, carga de la historia, respaldos (antes de la historia y al cierre) | MU-04 | 5, 6.1, 6.3, 9 (con el rol 1) | Sitio y configuración |
+| 2 · Jemima | Pedidos WEB-01 a 08, 10 y 12 por el sitio (flujos A, C, D, E), entregas y portal; **avisa en el grupo al terminar WEB-12** | MU-05 | 7, 8 | Compra de punta a punta |
+| 4 · Brayan | Flujo B (formulario → lead → cotización → portal: WEB-09 y 11) **y la entrega de esos dos**; reportes BI con tablero después del aviso de WEB-12 | MU-06 | 6.2, 10 | CRM en el sitio y BI |
 | 1 · Santiago | Plan de ventas, informe, KPIs, SMART, escalabilidad, conclusiones, presentación, PDF y ZIP | — | 1–4, 9, 11–16 | — |
 
 ## Calendario

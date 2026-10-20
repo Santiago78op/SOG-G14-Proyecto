@@ -208,9 +208,9 @@ def leeme():
         d.add_paragraph("•  " + t, style="List Paragraph")
     h(d, 1, "Reparto")
     tabla(d, ["Rol", "Qué hace en Odoo", "Manual", "Secciones del informe", "Video"], [
-        ["3 · Alberto", "Instala y configura el sitio, publica los 38 productos, configura el registro, el pago de prueba y la factura automática, recibe P00004 y carga la historia con el script", "MU-04", "5, 6.1, 6.3 y 9 (con el rol 1)", "Sitio y configuración"],
-        ["2 · Jemima", "Hace los pedidos WEB-01 a WEB-08, WEB-10 y WEB-12 en el sitio (flujos A, C, D y E), valida las entregas y prueba el portal", "MU-05", "7 y 8", "Compra de punta a punta"],
-        ["4 · Brayan", "Formulario del sitio → lead → cotización → portal (WEB-09 y WEB-11, flujo B) y los reportes BI con su tablero", "MU-06", "6.2 y 10", "CRM en el sitio y BI"],
+        ["3 · Alberto", "Instala y configura el sitio, publica los 38 productos, configura el registro, el pago de prueba y la factura automática, recibe P00004, carga la historia con el script y saca los respaldos (antes de la historia y al cierre, cuando Jemima avisa)", "MU-04", "5, 6.1, 6.3 y 9 (con el rol 1)", "Sitio y configuración"],
+        ["2 · Jemima", "Hace los pedidos WEB-01 a WEB-08, WEB-10 y WEB-12 en el sitio (flujos A, C, D y E), valida las entregas, prueba el portal y avisa en el grupo al terminar WEB-12", "MU-05", "7 y 8", "Compra de punta a punta"],
+        ["4 · Brayan", "Formulario del sitio → lead → cotización → portal (WEB-09 y WEB-11, flujo B), valida esas dos entregas, y los reportes BI con su tablero después del aviso de WEB-12", "MU-06", "6.2 y 10", "CRM en el sitio y BI"],
         ["1 · Santiago", "No toca Odoo: plan de ventas, informe, análisis de KPIs, objetivos SMART, escalabilidad, conclusiones, presentación, PDF y ZIP", "—", "1–4, 9, 11–16", "—"],
     ], "Reparto de la Fase 3")
     h(d, 1, "Calendario")
@@ -218,12 +218,12 @@ def leeme():
         ["Mar 20-10", "Reparto. Alberto respalda la base"],
         ["Mié 21-10 (ruta crítica)", "Alberto: sitio publicado, pago de prueba, factura automática, P00004 recibida e historia cargada. Sin esto nadie puede comprar"],
         ["Jue 22-10", "Jemima y Brayan: pedidos por el sitio, portal, flujo del CRM. Brayan empieza el BI"],
-        ["Vie 23-10", "Últimos pedidos (WEB-10 a WEB-12) antes del corte, BI terminado, manuales, videos. Santiago: informe con los números del BI, PDF y ZIP. Ensayo de la demo"],
+        ["Vie 23-10", "Últimos pedidos (WEB-10 a WEB-12); Jemima avisa al terminar WEB-12 y Alberto respalda. Después, BI terminado, manuales, videos. Santiago: informe con los números del BI, PDF y ZIP. Ensayo de la demo"],
         ["Sáb 24-10", "Entrega y presentación final en vivo"],
     ], "Calendario de la Fase 3")
     h(d, 1, "Reglas")
     for t in [
-        "Respaldo de la base antes de correr el script de la historia, y otro al cerrar los pedidos por el sitio.",
+        "Respaldos (Alberto): uno antes de correr el script de la historia y otro al cerrar los pedidos por el sitio, cuando Jemima avisa que hizo WEB-12.",
         "El script se corre primero con --probar. Si dice PROBLEMAS, no se sigue: se avisa en el grupo.",
         "Solo se compran por el sitio los pedidos del plan (hoja 2_Pedidos_sitio del Excel de ventas). Cada compra de "
         "más cambia los números del BI y las conclusiones.",
@@ -467,7 +467,8 @@ def manuales():
             ("El lead en el CRM", "CRM › Iniciativas (o Pipeline)", "Lead con origen sitio web"),
             ("Convertir a oportunidad y cotizar", "Oportunidad › Nueva cotización", "Cotización"),
             ("Enviar por correo", "Cotización › Enviar por correo", "Correo en Mailpit con enlace"),
-            ("El cliente acepta y paga en el portal", "Enlace del correo › Aceptar y pagar", "Pedido confirmado")]),
+            ("El cliente acepta y paga en el portal", "Enlace del correo › Aceptar y pagar", "Pedido confirmado"),
+            ("Validar la entrega y revisar la factura", "Inventario › Entregas › Validar; Facturación › Facturas de clientes", "Entrega hecha y factura pagada")]),
         ("Reporte de inventario", [
             ("Existencias por producto (barras)", "Inventario › Informes › Existencias › vista Gráfico › Barras, por Producto", "Barras"),
             ("Inventario por categoría (pastel)", "Misma vista › Pastel, por Categoría de producto", "Pastel"),

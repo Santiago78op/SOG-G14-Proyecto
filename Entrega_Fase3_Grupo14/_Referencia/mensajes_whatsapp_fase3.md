@@ -51,6 +51,7 @@ por persona, cada uno con su paquete adjunto (`Entrega_Fase3_Grupo14/_Paquetes_p
 > 6. *La historia:* `cargar_historial_ventas.py`, *primero con --probar*. Si dice PROBLEMAS, pará y mandame la
 > salida. Instrucciones arriba del script; corre dentro del contenedor, no hay que instalar nada.
 > 7. Pasá la URL del túnel al grupo.
+> 8. *Respaldo de cierre:* cuando Jemima avise que hizo WEB-12 (viernes 23), sacás otro respaldo. Ese es el que se restaura en la segunda laptop para la demo.
 >
 > La lista completa con las rutas está en el LEEME, sección «Configuración del sitio». Las rutas no están probadas:
 > si la pantalla dice otra cosa, gana la pantalla y lo anotás en el manual.
@@ -73,6 +74,8 @@ por persona, cada uno con su paquete adjunto (`Entrega_Fase3_Grupo14/_Paquetes_p
 > Para los clientes nuevos usá correos tuyos con +1, +2… (`tucorreo+1@gmail.com`) o `@example.com` si el correo
 > sale por Mailpit.
 >
+> *Cuando termines WEB-12 (el último), avisá en el grupo:* con ese aviso Brayan empieza las capturas del BI y Alberto saca el respaldo de cierre.
+>
 > Capturas mientras lo hacés. Lo que falle va a «Defectos encontrados»: vale más que lo que sí funcionó.
 >
 > En el informe: secciones *7 y 8*. Video: una compra de punta a punta (6–8 min). *Jueves 22* empezás, apenas
@@ -87,14 +90,16 @@ por persona, cada uno con su paquete adjunto (`Entrega_Fase3_Grupo14/_Paquetes_p
 > Dos partes. Tu manual es el *MU-06*.
 >
 > *1. Del sitio al CRM (WEB-09 y WEB-11, flujo B):* formulario de contacto del sitio → lead en el CRM → oportunidad →
-> cotización → enviada por correo (Mailpit) → el cliente la acepta y paga en el portal.
+> cotización → enviada por correo (Mailpit) → el cliente la acepta y paga en el portal. Después *validás la entrega*
+> de esos dos pedidos en Inventario y comprobás que la factura quedó pagada: si no, el inventario no baja y el BI no
+> cuadra.
 >
 > *2. BI con los informes de Odoo:*
 > • Inventario: *barras* de existencias por producto, *pastel* por categoría y *tabla* de productos bajo el mínimo.
 > • Ventas: *líneas* por día, semana y mes, el *top 5* de productos y ventas con *margen* por canal.
 > • Guardalos como favoritos y armá un *tablero*.
 >
-> El BI se termina *después del último pedido del viernes*, para que las capturas tengan todo. Lo que tiene que dar
+> El BI se termina *después del último pedido del viernes*: Jemima avisa en el grupo cuando hace WEB-12. Lo que tiene que dar
 > está en la hoja *4_Cuadre* del Excel de ventas: si Odoo da otra cosa, avisame antes de capturar.
 >
 > En el informe: secciones *6.2 y 10*. Video: CRM en el sitio y BI (8–10 min).

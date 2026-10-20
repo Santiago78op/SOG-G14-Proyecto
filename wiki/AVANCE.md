@@ -20,7 +20,7 @@ aliases: [Estado, Dónde quedamos, Progreso]
 | Script de carga de la historia | 🟡 **sin probar** | `cargar_historial_ventas.py` compila y responde `--help`. No hay Odoo ni Docker en la máquina del rol 1 |
 | LEEME, plantilla del informe y MU-04/05/06 | ✅ generados | `generar_documentos.py` sobre la carátula de la Fase 2. Exportados a PDF con Word para revisarlos: LEEME 6 págs., informe 20, MU-04 10, MU-05 8, MU-06 8 |
 | Guion de videos y demo final | ✅ | `4_Videos/guion_videos_fase3.md` |
-| Mensajes y paquetes por integrante | ✅ | un zip por rol, solo con lo suyo |
+| Mensajes y paquetes por integrante | ✅ | un zip por rol, solo con lo suyo. En la revisión aparecieron tres huecos, ya corregidos en los mensajes, el LEEME y el MU-06: nadie validaba las entregas de WEB-09 y WEB-11, el respaldo de cierre no tenía responsable y nadie avisaba que WEB-12 estaba hecho para arrancar el BI |
 | Cerebro | ✅ | nota [[Reparto y calendario Fase 3]]; decisiones y límites nuevos; CONTEXTO y CLAUDE.md apuntan a la Fase 3 |
 
 ### Decisiones de este turno
