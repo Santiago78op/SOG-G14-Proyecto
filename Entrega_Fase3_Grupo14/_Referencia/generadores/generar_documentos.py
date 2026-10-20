@@ -144,7 +144,7 @@ def tabla(d, encabezados, filas, titulo=None):
     t.style = "Table Grid"
     t.autofit = False
     # ancho de cada columna según el texto más largo que tiene (con tope), repartido en el ancho útil
-    largo = [max(min(max(len(str(x)) for x in [e] + [f[i] for f in filas]), 60), len(e) + 2, 8) + 4 for i, e in enumerate(encabezados)]
+    largo = [max(min(max(len(str(x)) for x in [e] + [f[i] for f in filas]), 60), min(len(e), 14) * 3 // 2 + 2, 12) + 4 for i, e in enumerate(encabezados)]
     anchos = [int(ANCHO_UTIL * l / sum(largo)) for l in largo]
     for c, e in zip(t.rows[0].cells, encabezados):
         c.text = e
@@ -278,26 +278,83 @@ def informe():
     C = lambda q, f: (lambda d: captura(d, q, f))
     T = lambda e, f, t: (lambda d: tabla(d, e, f, t))
 
-    sec(1, "Introducción", 1, I("Qué es RutaMoto en dos líneas, qué hizo cada fase y qué cierra esta: el sitio, la integración, "
-                                "el BI y la evaluación de los objetivos. Un párrafo por idea, cuatro párrafos como máximo."))
+    P = lambda *ts: (lambda d: [texto(d, t) for t in ts])
+    L = lambda *ts: (lambda d: [d.add_paragraph(f"{i}.  {t}", style="List Paragraph") for i, t in enumerate(ts, 1)])
+
+    # -- Secciones del rol 1 que no dependen de los resultados: redactadas (2026-10-20).
+    sec(1, "Introducción", 1, P(
+        "RutaMoto es la tienda en línea de repuestos y accesorios para motocicleta que el Grupo 14 desarrolla con el "
+        "financiamiento y el acompañamiento de QuetzalDev. La primera fase documentó su diagnóstico, sus objetivos y la "
+        "selección de Odoo 18.0 Community como ERP y CRM sobre una misma base de datos. La segunda dejó el sistema "
+        "operando: el catálogo de 36 productos con un inventario inicial de Q 45,000, dos productos más creados desde el "
+        "sistema, 6 proveedores y 40 clientes segmentados, junto con el ciclo completo de compras, el proceso de "
+        "cotización y una campaña de correo dirigida a un segmento.",
+        "Este informe corresponde a la tercera y última fase, que la metodología del proyecto dedica a la integración de "
+        "sistemas y al análisis de resultados. Su propósito es cerrar el ciclo comercial: que un cliente pueda "
+        "registrarse, elegir productos y pagar en el sitio, y que esa compra quede registrada sin intervención manual en "
+        "ventas, facturación, inventario y el CRM, y visible para el propio cliente en su portal.",
+        "El sitio se implementó con el módulo de comercio electrónico de Odoo, sobre la misma base que opera desde la "
+        "Fase 2. Esa decisión, tomada en la Fase 1 al seleccionar el ERP, es la que hace posible la integración: el sitio "
+        "no copia productos, precios ni existencias de otro sistema, sino que lee y escribe los mismos registros que usan "
+        "las demás áreas. Las ventas resultantes, junto con una historia de pedidos anteriores, se analizan con los "
+        "informes de inteligencia de negocios del propio Odoo.",
+        "Con esos datos, el informe vuelve sobre los cuatro objetivos SMART y los indicadores definidos en la Fase 1, "
+        "evalúa cuáles se cumplieron y cuáles no, y cierra con la propuesta de lo que haría falta para que el prototipo "
+        "pase a operar como empresa."))
     salto(d)
     sec(1, "Objetivos de la fase", 1)
-    sec(2, "Objetivo general", None, I("Una oración: dejar el ciclo comercial de RutaMoto operando de punta a punta en línea y medirlo con BI."))
-    sec(2, "Objetivos específicos", None, I("Cuatro, uno por pieza: sitio, integración, BI, evaluación de objetivos y escalabilidad."))
-    sec(1, "Alcance de la fase", 1,
-        I("Qué entra y qué no. Tiene que decir de forma explícita lo de la historia simulada:"),
-        lambda d: texto(d, "Las ventas registradas entre el 5 y el 20 de octubre de 2026 (45 pedidos, canal «Ventas directas "
-                           "(WhatsApp y teléfono)») son una historia simulada, cargada con un script sobre la API de Odoo, para que "
-                           "los reportes de ventas por día, semana y mes tengan datos que mostrar. Las ventas del 21 al 23 de octubre "
-                           "se hicieron en el sitio, como clientes, por los integrantes del grupo. Las conclusiones distinguen "
-                           "siempre entre las dos."),
-        I("Fuera de alcance (del enunciado, alcance opcional): pasarela de pago real, aplicación móvil, contabilidad completa."))
+    sec(2, "Objetivo general", None, P(
+        "Integrar el sitio de comercio electrónico de RutaMoto con el ERP y el CRM, de modo que una venta en línea quede "
+        "registrada de punta a punta sin intervención manual, y evaluar con reportes de inteligencia de negocios el "
+        "cumplimiento de los objetivos y los indicadores definidos en la Fase 1."))
+    sec(2, "Objetivos específicos", None, L(
+        "Publicar el sitio de comercio electrónico con el catálogo completo de 38 productos, registro de clientes, carrito "
+        "de compras, generación de cotizaciones y facturación.",
+        "Comprobar mediante pruebas de flujo completo que cada venta en línea genera automáticamente el pedido, la "
+        "factura, el movimiento de inventario y el registro del cliente, y que el portal del cliente refleja su estado.",
+        "Construir con la herramienta de inteligencia de negocios los reportes de inventario y de ventas que pide el "
+        "enunciado, de forma interactiva y sobre los datos del sistema.",
+        "Contrastar los resultados con las metas de la Fase 1, formular las conclusiones del proyecto y proponer la "
+        "escalabilidad del sistema."))
+    sec(1, "Alcance de la fase", 1, P(
+        "Este informe cubre el trabajo realizado entre el 5 y el 24 de octubre de 2026, el período que el cronograma del "
+        "enunciado asigna a la Fase 3. Dentro de ese alcance quedan el sitio web de comercio electrónico del punto 16, su "
+        "integración con el ERP y el CRM, el portal del cliente, las pruebas de flujo completo, los reportes de "
+        "inventario y de ventas del punto 17 y las conclusiones del punto 19. Cada pieza operativa se acompaña de su "
+        "manual de usuario con capturas de pantalla, entregado como documento aparte (MU-04 a MU-06).",
+        "Las ventas registradas entre el 5 y el 20 de octubre de 2026 (45 pedidos, canal «Ventas directas (WhatsApp y "
+        "teléfono)») son una historia simulada, cargada con un script sobre la API de Odoo, para que los reportes de "
+        "ventas por día, semana y mes tengan datos que mostrar. Las ventas del 21 al 23 de octubre se hicieron en el "
+        "sitio, como clientes, por los integrantes del grupo. Las conclusiones distinguen siempre entre las dos.",
+        "Quedan fuera los elementos que el enunciado declara opcionales: la integración con una pasarela de pago real, "
+        "la aplicación móvil y los módulos contables o de recursos humanos más allá de la facturación. Se mencionan solo "
+        "en la propuesta de escalabilidad.",
+        "Conviene señalar cuatro límites del trabajo. El primero es que el sistema sigue instalado en el equipo de uno de "
+        "los integrantes, con acceso remoto temporal para el resto, igual que en la Fase 2. El segundo es que los pagos "
+        "del sitio se hicieron con un proveedor de pago en modo de prueba, que confirma la transacción sin mover dinero. "
+        "El tercero es que los correos se entregaron a un servidor de correo de pruebas, porque los clientes del caso son "
+        "ficticios. El cuarto es el tamaño de la muestra: las ventas reales del sitio son una docena de pedidos hechos "
+        "por el propio equipo, de modo que los indicadores que dependen de los visitantes, como la tasa de conversión, se "
+        "reportan como medición del prototipo y no como comportamiento del mercado."))
     salto(d)
     sec(1, "Seguimiento de la Fase 2", 1)
-    sec(2, "Avance contra el cronograma", None, T(["Actividad", "Responsable", "Plan", "Real", "Estado"],
-        [["Sitio publicado", "Rol 3", "21-10", "", ""], ["Historia cargada", "Rol 3", "21-10", "", ""],
-         ["Pedidos por el sitio", "Rol 2 y 4", "22–23-10", "", ""], ["Reportes BI", "Rol 4", "22–23-10", "", ""],
-         ["Informe y entrega", "Rol 1", "23-10", "", ""]], "Avance de la Fase 3 contra el cronograma"))
+    sec(2, "Avance contra el cronograma", None, P(
+        "La tabla siguiente retoma las actividades que el cronograma de la Fase 1 asignó a esta tercera fase. El reparto "
+        "formal del trabajo se hizo el 20 de octubre de 2026, después de las fechas de inicio planificadas para las tres "
+        "primeras actividades.",
+        "Además, cambió el responsable de dos de ellas. El sitio y su integración quedaron con el rol 3, porque la "
+        "instancia de Odoo está en su equipo desde la Fase 1 y la configuración del sitio la requiere de forma directa. "
+        "Los reportes de inteligencia de negocios pasaron al rol 4, que ya administraba el CRM. El rol 2 asumió las "
+        "pruebas de flujo completo y el portal del cliente, como continuación de las cotizaciones y del informe de "
+        "inventario que tuvo a su cargo en la Fase 2."),
+        T(["Actividad", "Planificado", "Responsable en la Fase 1", "Responsable en la Fase 3", "Real", "Estado"], [
+            ["Sitio web E-commerce", "5 al 15 oct", "Rol 4", "Rol 3", "", ""],
+            ["Integración ERP / CRM / Web y portal", "10 al 18 oct", "Rol 3", "Roles 3, 2 y 4", "", ""],
+            ["Reportes de inteligencia de negocios", "16 al 21 oct", "Rol 2", "Rol 4", "", ""],
+            ["Conclusiones e informe final", "20 al 23 oct", "Rol 1", "Rol 1", "", ""],
+        ], "Avance de la Fase 3 contra el cronograma"),
+        I("Al cierre: llenar «Real» y «Estado» con la fecha en que cada actividad quedó en el repositorio, y una oración "
+          "que diga cuáles cerraron después de lo planificado."))
     sec(2, "Observaciones de la calificación de la Fase 2", None,
         I("Lo que dijo el catedrático de la Fase 2 y qué se corrigió. Si no hubo observaciones, decirlo en una oración."))
     salto(d)
@@ -377,11 +434,41 @@ def informe():
         ["O3 · Base de clientes segmentada", "350 clientes y 15 talleres en el trimestre", "", ""],
         ["O4 · Sostener la promesa de entrega", "90 % en < 24 h, CSAT ≥ 4.3", "", ""],
     ], "Objetivos SMART de la Fase 1 contra lo logrado"))
-    sec(1, "Propuesta de escalabilidad", 1,
-        I("Qué haría falta para pasar del prototipo a la operación: servidor en la nube en vez de la laptop del rol 3 (el "
-          "punto único de falla de todo el proyecto), pasarela de pago real, dominio rutamoto.gt con certificado, correo "
-          "real en vez de Mailpit, encuesta postventa para medir el CSAT, BI con histórico (Power BI o Looker Studio sobre "
-          "réplica de PostgreSQL), la expansión a Sacatepéquez, Chimaltenango y Escuintla. Con costo estimado donde se pueda."))
+    sec(1, "Propuesta de escalabilidad", 1, P(
+        "La Fase 3 deja un prototipo funcional: el ciclo comercial completo opera sobre una sola instancia de Odoo. Para "
+        "que RutaMoto pase a operar como empresa hacen falta cambios de infraestructura, de servicios y de medición, que "
+        "se ordenan aquí por prioridad. Los costos son los del presupuesto preoperativo de la Fase 1, que ya contemplaba "
+        "la operación real; lo que no figura en ese presupuesto se indica como tal y no se estima."),
+        T(["#", "Mejora", "Qué resuelve", "Costo (presupuesto de la Fase 1)"], [
+            ["1", "Servidor virtual en la nube (4 vCPU, 8 GB de RAM, 80 GB SSD) con respaldo de 100 GB",
+             "El punto único de falla del proyecto: hoy toda la operación depende de que un equipo portátil esté encendido",
+             "Q 2,400 al año el servidor. El respaldo no tiene rubro propio"],
+            ["2", "Dominio rutamoto.gt con HTTPS (Nginx y certificado de Let's Encrypt)",
+             "Reemplaza la dirección temporal del acceso remoto, que cambia en cada reinicio. El certificado es requisito para cobrar en línea",
+             "Q 700 al año el dominio; el certificado, Q 0"],
+            ["3", "Pasarela de pago real", "Reemplaza el proveedor de pago de prueba: cobro con tarjeta",
+             "Q 1,500 de afiliación, más comisión por transacción"],
+            ["4", "Servidor de correo saliente real", "Las cotizaciones y las campañas llegan al buzón del cliente",
+             "Sin rubro en el presupuesto"],
+            ["5", "Encuesta postventa con el módulo Encuestas de Odoo",
+             "Permite medir la satisfacción postventa, el único indicador de la Fase 1 sin medición", "Sin costo de licencia"],
+            ["6", "Análisis histórico con Power BI Desktop sobre una réplica de la base",
+             "Tendencias de varios meses sin cargar la base que atiende el sitio", "Q 0 (versión de escritorio)"],
+            ["7", "Zonas de entrega para Sacatepéquez, Chimaltenango y Escuintla",
+             "La expansión prevista en el caso. Exige métodos de envío por zona y revisar la meta de entrega en menos de 24 horas fuera del área metropolitana",
+             "Sin rubro en el presupuesto"],
+        ], "Propuesta de escalabilidad, por prioridad"),
+        P("La primera mejora condiciona a las demás. Sin un servidor permanente no tiene sentido contratar el dominio, la "
+          "pasarela ni el correo, porque el sitio deja de existir cada vez que se apaga el equipo que lo hospeda. Las tres "
+          "mejoras con costo ya forman parte de los Q 67,100 del presupuesto de la Fase 1 y suman Q 4,600 el primer año.",
+          "El servidor propuesto se dimensionó en la Fase 1 para el volumen del primer trimestre, 200 pedidos. Como el "
+          "sitio, el ERP y el CRM comparten una sola instancia, crecer no exige integrar nada nuevo: exige más recursos "
+          "para los mismos contenedores y, cuando el volumen lo justifique, separar la base de datos en su propio servidor. "
+          "La arquitectura en contenedores definida en la Fase 1 convierte ese paso en un despliegue del mismo archivo de "
+          "composición, no en una reinstalación.",
+          "La contrapartida, ya señalada en la Fase 1, es la dependencia del ecosistema Odoo: la integración que este "
+          "informe demuestra existe porque las tres piezas son el mismo sistema, y sustituir una de ellas obligaría a "
+          "construir los conectores que hoy no hacen falta."))
     salto(d)
     sec(1, "Conclusiones", 1,
         I("Mínimo 3, cada una atada a un KPI u objetivo y a un número del BI. Después: beneficios, limitaciones (la historia "

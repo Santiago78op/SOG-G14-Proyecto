@@ -32,3 +32,6 @@ Los cuatro manuales se rearmaron como un solo documento con una carátula, un í
 
 ## [2026-10-20] ingest | Fase 3 repartida
 Nota nueva [[Reparto y calendario Fase 3]]: reparto con los mismos roles, calendario al 24-10, plan de ventas (45 pedidos simulados + 12 por el sitio) y lo que debería dar el BI. Decisiones: BI con los informes de Odoo e historia simulada cargada por script. El script no se probó contra Odoo. Detalle en [[AVANCE]].
+
+## [2026-10-20] ingest | Secciones del rol 1 y presentación
+Se redactaron las secciones 1, 2, 3, 4.1 y 13 del informe de la Fase 3, y la presentación final quedó armada (14 diapositivas) a la espera de capturas y números del BI. Detalle en [[AVANCE]].

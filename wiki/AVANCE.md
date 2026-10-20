@@ -22,6 +22,8 @@ aliases: [Estado, Dónde quedamos, Progreso]
 | Guion de videos y demo final | ✅ | `4_Videos/guion_videos_fase3.md` |
 | Mensajes y paquetes por integrante | ✅ | un zip por rol, solo con lo suyo. En la revisión aparecieron tres huecos, ya corregidos en los mensajes, el LEEME y el MU-06: nadie validaba las entregas de WEB-09 y WEB-11, el respaldo de cierre no tenía responsable y nadie avisaba que WEB-12 estaba hecho para arrancar el BI |
 | Cerebro | ✅ | nota [[Reparto y calendario Fase 3]]; decisiones y límites nuevos; CONTEXTO y CLAUDE.md apuntan a la Fase 3 |
+| Informe: secciones 1, 2, 3, 4.1 y 13 del rol 1 | ✅ redactadas | En `generar_documentos.py`. La 13 (escalabilidad) usa solo cifras del presupuesto de la Fase 1: VPS Q 2,400, dominio Q 700 y pasarela Q 1,500, que suman Q 4,600. Lo que no tenía rubro dice «sin rubro». Quedan pendientes 4.1 (columnas «Real» y «Estado»), 4.2 (nota de la Fase 2), 9 y 11–16 |
+| Presentación final | 🟡 armada, sin datos | `5_Presentacion/Presentacion_Fase3_Grupo14.pptx`, 14 diapositivas con el diseño de la Fase 2, generada por `generar_presentacion.py`. Las capturas son recuadros «[Captura: …]» y los números del BI son «—». Las notas del orador dicen qué decir: se vacían antes de entregar |
 
 ### Decisiones de este turno
 
