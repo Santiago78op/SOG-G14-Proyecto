@@ -22,6 +22,12 @@ aliases: [Decisiones, Límites honestos, Riesgos]
 | 2026-10-05 | LUB-001 no se reimporta: se completa la ficha que ya existía | Importar la fila habría dejado dos productos con el mismo código, porque el importador no reconoce registros existentes sin identificador externo |
 | 2026-10-05 | Las 32 reglas de reabastecimiento quedan con disparador **manual** | Con disparador automático el planificador nocturno genera órdenes solo y altera el estado de compras diseñado para la demostración |
 | 2026-10-05 | Los productos adicionales reciben su regla de mínimo **después** de las compras | Creada antes, la regla habría propuesto 40 unidades de cada uno en lugar de las cantidades del plan |
+| 2026-10-20 | Fase 3 con los mismos roles de la Fase 2 | Decisión del grupo; cada quien sigue sobre el módulo que ya conoce |
+| 2026-10-20 | El BI se hace con los informes de Odoo (gráfico, pivote y tablero), no con Power BI | Decisión del rol 1. Leen la base al momento y son interactivos sin licencia ni exportaciones; Power BI publicado sin licencia no es interactivo |
+| 2026-10-20 | Historia simulada de 45 pedidos (05-10 al 20-10) cargada por script, declarada como tal en el informe | Sin ella, la gráfica de ventas por día, semana y mes tiene tres puntos. Se eligió frente a «solo ventas reales» y «ventas reales repartidas en 4 días» |
+| 2026-10-20 | La historia se carga por XML-RPC (ORM) y no con SQL directo | El ORM crea entregas, facturas y pagos coherentes; con SQL solo se movían fechas y quedaban registros a medias |
+| 2026-10-20 | Canal propio para la historia: equipo «Ventas directas (WhatsApp y teléfono)» | Separa en el BI lo simulado de lo vendido por el sitio (equipo «Sitio web») |
+| 2026-10-20 | La historia aparta lo que después se vende por el sitio y nunca deja un producto en cero | Que ningún pedido WEB del plan falle por falta de existencia |
 
 ## Límites honestos (lo que no se sabe o no se probó)
 
@@ -35,5 +41,10 @@ aliases: [Decisiones, Límites honestos, Riesgos]
 - **Todo depende de la laptop del rol 3** (punto único de falla, abierto desde la Fase 1).
 - **Del PDF de la Fase 1 que se subió a UEDI, de los videos y del ZIP no hay copia** en el repo.
 - **Los generadores** de los Word, el Excel, las imágenes y el pptx (python-docx, xlsxwriter, python-pptx y PIL) no están en el repo: quedaron en una carpeta temporal de la sesión del 2026-09-28. Si hay que regenerar algo, se edita el archivo a mano o se reescribe el generador.
+- **`cargar_historial_ventas.py` no se probó contra ningún Odoo** (2026-10-20): en la máquina del rol 1 no hay Docker. Compila y su `--help` corre; el resto (nombres de métodos y campos de Odoo 18: `quantity`/`picked` en `stock.move`, el asistente `sale.advance.payment.inv`, `account.payment.register`) sale de la documentación y del código de Odoo, no de una ejecución. Por eso tiene `--probar` y se corre primero sobre un respaldo.
+- **No se sabe si Odoo deja reescribir `date_order` en un pedido confirmado vía ORM** sin efectos secundarios en el informe de ventas. Si no, el BI mostraría la historia entera el 21-10 y habría que buscar otro camino.
+- **Las rutas de menú del MU-04, MU-05 y MU-06 no se probaron.** Son de Odoo 18 Community de memoria.
+- **No se verificó que el tablero («Agregar a mi tablero») exista en Odoo 18 Community.** Si no está, el tablero se reemplaza por los favoritos guardados.
+- **El CSAT (KPI 4) no se mide**: no hay encuesta postventa. Queda en escalabilidad.
 
 Relacionado: [[AVANCE]] · [[Ambiente Odoo]]

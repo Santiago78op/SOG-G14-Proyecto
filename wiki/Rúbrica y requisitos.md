@@ -35,7 +35,7 @@ Fuente: `2S2026_Proyecto_1.pdf`, secciones 8.1 y 8.2. La validación punto por p
 
 ## Fase 3 (24-10-2026)
 
-Sitio e-commerce (15) · Integración ERP/CRM/web (15) · BI (10) · Conclusiones con datos (20) · Documentación (10) · Entregables (10) · Presentación (20). La integración es «el aspecto más valorado» según los comentarios generales del enunciado.
+Sitio e-commerce (15) · Integración ERP/CRM/web (15) · BI (10) · Conclusiones con datos (20) · Documentación (10) · Entregables (10) · Presentación (20). La integración es «el aspecto más valorado» según los comentarios generales del enunciado. Reparto y plan en [[Reparto y calendario Fase 3]].
 
 ## Rarezas del enunciado
 

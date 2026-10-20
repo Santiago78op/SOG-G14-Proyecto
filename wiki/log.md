@@ -29,3 +29,6 @@ Se quitaron las notas de trabajo del informe y las frases de plantilla del MU-03
 
 ## [2026-10-05] ingest | Manual de usuario unificado
 Los cuatro manuales se rearmaron como un solo documento con una carátula, un índice y numeración corrida (90 páginas), y se ajustaron los cortes de página del manual y del informe. Detalle en [[AVANCE]].
+
+## [2026-10-20] ingest | Fase 3 repartida
+Nota nueva [[Reparto y calendario Fase 3]]: reparto con los mismos roles, calendario al 24-10, plan de ventas (45 pedidos simulados + 12 por el sitio) y lo que debería dar el BI. Decisiones: BI con los informes de Odoo e historia simulada cargada por script. El script no se probó contra Odoo. Detalle en [[AVANCE]].

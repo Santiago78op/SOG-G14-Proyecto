@@ -7,7 +7,38 @@ aliases: [Estado, Dónde quedamos, Progreso]
 
 > Fuente de verdad del progreso. Se actualiza al cerrar cada sesión de trabajo. Fechas siempre absolutas.
 
-## 📌 Último turno — 2026-10-05 (rol 1): informe final armado, manuales unidos y rama de entrega lista
+## 📌 Último turno — 2026-10-20 (rol 1): Fase 3 repartida
+
+**Próximo paso:** mandar los mensajes de `Entrega_Fase3_Grupo14/_Referencia/mensajes_whatsapp_fase3.md` con los zips de `_Paquetes_para_integrantes/` (fuera de git). El **miércoles 21-10** es la ruta crítica: el rol 3 publica el sitio y carga la historia; hasta entonces nadie puede comprar.
+
+### Qué se hizo
+
+| Pieza | Estado | Testigo |
+|---|---|---|
+| Repo local al día | ✅ | Estaba **25 commits atrás** de GitHub (todo lo del 05-10). `git pull --ff-only` hasta `a1d9774`. Dos notas locales del 28-09 que nunca se subieron quedaron en `git stash` («notas locales 2026-09-28 (2) sin subir»): no se perdieron ni se aplicaron |
+| Plan de ventas (historia + pedidos por el sitio) | ✅ generado | `generar_ventas.py`, semilla 14: 45 pedidos simulados, Q 14,679.50, 12 pedidos WEB. Números en [[Reparto y calendario Fase 3]] |
+| Script de carga de la historia | 🟡 **sin probar** | `cargar_historial_ventas.py` compila y responde `--help`. No hay Odoo ni Docker en la máquina del rol 1 |
+| LEEME, plantilla del informe y MU-04/05/06 | ✅ generados | `generar_documentos.py` sobre la carátula de la Fase 2. Exportados a PDF con Word para revisarlos: LEEME 6 págs., informe 20, MU-04 10, MU-05 8, MU-06 8 |
+| Guion de videos y demo final | ✅ | `4_Videos/guion_videos_fase3.md` |
+| Mensajes y paquetes por integrante | ✅ | un zip por rol, solo con lo suyo |
+| Cerebro | ✅ | nota [[Reparto y calendario Fase 3]]; decisiones y límites nuevos; CONTEXTO y CLAUDE.md apuntan a la Fase 3 |
+
+### Decisiones de este turno
+
+Mismos roles; BI con los informes de Odoo (no Power BI); historia simulada declarada en el informe y cargada por ORM, no por SQL. Detalle y porqué en [[Decisiones y límites]].
+
+### Defectos de este turno (contados, no tapados)
+
+- La primera versión del plan dio 38 pedidos en vez de 45 y un solo producto bajo el mínimo; la segunda, ticket de Q 413 y CAS-002 en cero por un pedido del sitio. Se ajustaron las canastas y la historia ahora **aparta lo que después se vende por el sitio**.
+- La primera exportación de los Word mostró «INFORME DE AVANCE» en la carátula (cuadro de texto heredado de la Fase 2) y tablas de columnas iguales, justificadas y partidas entre páginas. Corregido en el generador.
+
+### Preguntas abiertas
+
+- ¿Llegó la nota de la Fase 2 con observaciones? Va a la sección 4.2 del informe.
+- ¿Odoo acepta reescribir `date_order` de un pedido confirmado por ORM? Lo dice la primera corrida del script sobre el respaldo.
+- ¿Existe «Agregar a mi tablero» en Odoo 18 Community? Lo comprueba el rol 4.
+
+## 📌 Turno anterior — 2026-10-05 (rol 1): informe final armado, manuales unidos y rama de entrega lista
 
 **Próximo paso:** subir a UEDI el `Entrega_Fase2_Grupo14.zip`, que se armó desde la rama `entrega/fase2`. El anexo E ya tiene el enlace del video del rol 2 (es una carpeta de Drive, no un archivo) y el PDF se volvió a exportar.
 

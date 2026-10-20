@@ -18,15 +18,15 @@
 | 3 | Alberto Josué Hernández Armas | 201903553 | Instancia de Odoo, carga masiva (12.1) y ciclo de compras (12.2) |
 | 4 | Brayan Emanuel García | 202300848 | Servidor de correo, plantillas (13), campaña (14), pipeline (15) y capturas faltantes del MU-00 |
 
-**Si sos uno de ellos, empezá por tu fila** y por tu manual en `Entrega_Fase2_Grupo14/2_Manuales_Usuario/`. El reparto completo, con su justificación, está en [[Reparto y calendario Fase 2]].
+**Si sos uno de ellos, empezá por tu fila.** En la Fase 3 (mismos roles) tu manual está en `Entrega_Fase3_Grupo14/2_Manuales_Usuario/` y tus pedidos en la hoja «2_Pedidos_sitio» del Excel de ventas. Reparto en [[Reparto y calendario Fase 3]]; el de la Fase 2, en [[Reparto y calendario Fase 2]].
 
 ## Fechas
 
 | Fase | Contenido | Entrega |
 |---|---|---|
 | 1 | Planificación, diseño y diagnóstico | **Entregada** el 19-09-2026 |
-| 2 | Carga de datos, cadena de suministros y CRM | **Sábado 03-10-2026**, con demo técnica en vivo ese mismo día |
-| 3 | Sitio e-commerce, integración, portal y BI | 24-10-2026 |
+| 2 | Carga de datos, cadena de suministros y CRM | **Entregada** el 05-10-2026 (zip de la rama `entrega/fase2`) |
+| 3 | Sitio e-commerce, integración, portal y BI | **Sábado 24-10-2026**, con presentación final. Reparto en [[Reparto y calendario Fase 3]] |
 
 ## El caso, en una línea
 
@@ -34,13 +34,13 @@
 
 ## Stack (decidido en la Fase 1, no se cambia)
 
-Odoo 18.0 Community como ERP y CRM, con eCommerce, sobre PostgreSQL 16, en Docker. Power BI Desktop en la Fase 3. La instancia vive en la **laptop del rol 3** y los demás entran por un túnel. Ver [[Ambiente Odoo]].
+Odoo 18.0 Community como ERP y CRM, con eCommerce, sobre PostgreSQL 16, en Docker. En la Fase 3, el BI son los informes de Odoo (decisión del 2026-10-20; ya no Power BI). La instancia vive en la **laptop del rol 3** y los demás entran por un túnel. Ver [[Ambiente Odoo]].
 
 ## Reglas que no se negocian
 
 - **Los números salen del Excel y de su hoja «Cuadre».** Inventario inicial = **Q 45,000** exacto (el rubro del presupuesto de la Fase 1). Nadie cambia un precio, una cantidad ni un nombre sin avisar en el grupo. Ver [[Datos maestros y cuadre]].
 - **Una sola base de Odoo para los cuatro.** Nada de copias: con cuatro copias, el sábado no cuadra nada.
-- **No improvisar movimientos en la base.** Las compras y las cotizaciones siguen un plan fijo ([[Plan de compras y cotizaciones]]): cada movimiento extra cambia el informe de inventario.
+- **No improvisar movimientos en la base.** Las compras y las cotizaciones siguen un plan fijo ([[Plan de compras y cotizaciones]]), y en la Fase 3 las ventas también (hojas «1_Historial» y «2_Pedidos_sitio» del Excel de ventas): cada movimiento extra cambia el BI y las conclusiones.
 - **Capturas mientras se hace el paso**, no después.
 - **Gris y cursiva = instrucción.** Se borra antes de entregar.
 - **Lo que no se probó se dice.** Las rutas de menú de los manuales y el Excel **no se han probado todavía en Odoo**. Si la pantalla dice otra cosa, gana la pantalla: se corrige el manual y se anota en [[AVANCE]].
@@ -58,4 +58,7 @@ Odoo 18.0 Community como ERP y CRM, con eCommerce, sobre PostgreSQL 16, en Docke
 | Fase 2: Excel, imágenes y marca | `Entrega_Fase2_Grupo14/3_Archivos_Datos/` |
 | Fase 2: guion de videos y demo | `Entrega_Fase2_Grupo14/4_Videos/guion_videos_fase2.md` |
 | Fase 2: validación contra el enunciado | `Entrega_Fase2_Grupo14/_Referencia/validacion_enunciado_fase2.md` |
+| Fase 3: guía del equipo | `Entrega_Fase3_Grupo14/LEEME_PRIMERO_Fase3.docx` |
+| Fase 3: plan de ventas y script de la historia | `Entrega_Fase3_Grupo14/3_Archivos_Datos/` y `_Referencia/scripts_instancia/cargar_historial_ventas.py` |
+| Fase 3: generadores de los Word y del plan (versionados) | `Entrega_Fase3_Grupo14/_Referencia/generadores/` |
 | Estado y próximo paso | [[AVANCE]] |

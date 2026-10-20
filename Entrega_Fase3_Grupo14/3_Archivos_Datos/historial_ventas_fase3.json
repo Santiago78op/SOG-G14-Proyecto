@@ -1,0 +1,775 @@
+{
+ "generado": "2026-10-20 11:10",
+ "equipo_ventas": "Ventas directas (WhatsApp y teléfono)",
+ "nota": "Historia simulada del 05-10 al 20-10-2026. Las fechas van en UTC (hora de Guatemala + 6 h).",
+ "pedidos": [
+  {
+   "ref": "HIST-001",
+   "cliente": "Denis Rodrigo Aldana Sical",
+   "lineas": [
+    {
+     "producto": "LUB-007",
+     "cantidad": 1
+    },
+    {
+     "producto": "FRE-001",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-05 17:30:00",
+   "entrega_utc": "2026-10-05 20:30:00"
+  },
+  {
+   "ref": "HIST-002",
+   "cliente": "Érick Daniel Monterroso Pineda",
+   "lineas": [
+    {
+     "producto": "LLA-005",
+     "cantidad": 1
+    },
+    {
+     "producto": "ACC-004",
+     "cantidad": 1
+    },
+    {
+     "producto": "LUB-001",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-05 17:00:00",
+   "entrega_utc": "2026-10-06 12:00:00"
+  },
+  {
+   "ref": "HIST-003",
+   "cliente": "Diego Andrés Solórzano Paz",
+   "lineas": [
+    {
+     "producto": "CAS-004",
+     "cantidad": 1
+    },
+    {
+     "producto": "ELE-005",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-05 18:41:00",
+   "entrega_utc": "2026-10-06 02:41:00"
+  },
+  {
+   "ref": "HIST-004",
+   "cliente": "Hugo Armando Villatoro Cruz",
+   "lineas": [
+    {
+     "producto": "CAS-005",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-05 17:45:00",
+   "entrega_utc": "2026-10-06 06:45:00"
+  },
+  {
+   "ref": "HIST-005",
+   "cliente": "Brandon Josué Ramírez Coy",
+   "lineas": [
+    {
+     "producto": "CAS-004",
+     "cantidad": 1
+    },
+    {
+     "producto": "LUB-004",
+     "cantidad": 2
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-06 21:41:00",
+   "entrega_utc": "2026-10-07 03:41:00"
+  },
+  {
+   "ref": "HIST-006",
+   "cliente": "Ana Lucía Méndez Ochoa",
+   "lineas": [
+    {
+     "producto": "CAS-004",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-06 17:30:00",
+   "entrega_utc": "2026-10-07 00:30:00"
+  },
+  {
+   "ref": "HIST-007",
+   "cliente": "Gabriela Alejandra Toledo Mejía",
+   "lineas": [
+    {
+     "producto": "CAS-002",
+     "cantidad": 1
+    },
+    {
+     "producto": "FRE-001",
+     "cantidad": 1
+    },
+    {
+     "producto": "LUB-002",
+     "cantidad": 2
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-06 20:15:00",
+   "entrega_utc": "2026-10-07 01:15:00"
+  },
+  {
+   "ref": "HIST-008",
+   "cliente": "Mónica Isabel Arévalo Soto",
+   "lineas": [
+    {
+     "producto": "FRE-004",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-07 16:00:00",
+   "entrega_utc": "2026-10-08 02:00:00"
+  },
+  {
+   "ref": "HIST-009",
+   "cliente": "Daniela Fernanda Porras Lima",
+   "lineas": [
+    {
+     "producto": "ELE-001",
+     "cantidad": 1
+    },
+    {
+     "producto": "ACC-002",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-07 18:52:00",
+   "entrega_utc": "2026-10-07 23:52:00"
+  },
+  {
+   "ref": "HIST-010",
+   "cliente": "Cristian David Hernández Sapón",
+   "lineas": [
+    {
+     "producto": "LUB-001",
+     "cantidad": 1
+    },
+    {
+     "producto": "CAS-004",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-07 20:07:00",
+   "entrega_utc": "2026-10-08 04:07:00"
+  },
+  {
+   "ref": "HIST-011",
+   "cliente": "Luis Fernando Chávez Morales",
+   "lineas": [
+    {
+     "producto": "LUB-001",
+     "cantidad": 2
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-08 14:15:00",
+   "entrega_utc": "2026-10-10 06:15:00"
+  },
+  {
+   "ref": "HIST-012",
+   "cliente": "Moto Servicio La Florida",
+   "lineas": [
+    {
+     "producto": "LUB-001",
+     "cantidad": 6
+    },
+    {
+     "producto": "LUB-005",
+     "cantidad": 3
+    },
+    {
+     "producto": "ELE-003",
+     "cantidad": 2
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-08 18:07:00",
+   "entrega_utc": "2026-10-09 23:07:00"
+  },
+  {
+   "ref": "HIST-013",
+   "cliente": "José Pablo Reyes Castañeda",
+   "lineas": [
+    {
+     "producto": "ELE-005",
+     "cantidad": 1
+    },
+    {
+     "producto": "ACC-003",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-08 14:41:00",
+   "entrega_utc": "2026-10-10 05:41:00"
+  },
+  {
+   "ref": "HIST-014",
+   "cliente": "Andrés Sebastián Kohon Ávila",
+   "lineas": [
+    {
+     "producto": "CAS-005",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-09 18:41:00",
+   "entrega_utc": "2026-10-10 07:41:00"
+  },
+  {
+   "ref": "HIST-015",
+   "cliente": "Andrea Sofía Cifuentes Rivas",
+   "lineas": [
+    {
+     "producto": "LUB-006",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-09 23:30:00",
+   "entrega_utc": "2026-10-11 09:30:00"
+  },
+  {
+   "ref": "HIST-016",
+   "cliente": "Wilson Omar García Tuyuc",
+   "lineas": [
+    {
+     "producto": "ELE-007",
+     "cantidad": 2
+    },
+    {
+     "producto": "LUB-001",
+     "cantidad": 1
+    },
+    {
+     "producto": "ACC-004",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-09 23:45:00",
+   "entrega_utc": "2026-10-10 15:45:00"
+  },
+  {
+   "ref": "HIST-017",
+   "cliente": "Carlos Enrique Guzmán Ortiz",
+   "lineas": [
+    {
+     "producto": "ELE-005",
+     "cantidad": 1
+    },
+    {
+     "producto": "ACC-006",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-09 20:52:00",
+   "entrega_utc": "2026-10-10 15:52:00"
+  },
+  {
+   "ref": "HIST-018",
+   "cliente": "MotoFix Zona 18",
+   "lineas": [
+    {
+     "producto": "ELE-003",
+     "cantidad": 2
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-10 17:30:00",
+   "entrega_utc": "2026-10-10 22:30:00"
+  },
+  {
+   "ref": "HIST-019",
+   "cliente": "Lucía Fernanda Marroquín Aguilar",
+   "lineas": [
+    {
+     "producto": "FRE-001",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-11 00:00:00",
+   "entrega_utc": "2026-10-11 12:00:00"
+  },
+  {
+   "ref": "HIST-020",
+   "cliente": "Oscar Leonel Arriaga Batz",
+   "lineas": [
+    {
+     "producto": "ACC-003",
+     "cantidad": 1
+    },
+    {
+     "producto": "ELE-005",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-12 19:52:00",
+   "entrega_utc": "2026-10-13 10:52:00"
+  },
+  {
+   "ref": "HIST-021",
+   "cliente": "María José Barrios Estrada",
+   "lineas": [
+    {
+     "producto": "LUB-002",
+     "cantidad": 2
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-12 17:41:00",
+   "entrega_utc": "2026-10-13 13:41:00"
+  },
+  {
+   "ref": "HIST-022",
+   "cliente": "Jorge Mario Velásquez Ajú",
+   "lineas": [
+    {
+     "producto": "LUB-001",
+     "cantidad": 2
+    },
+    {
+     "producto": "LUB-004",
+     "cantidad": 2
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-12 21:30:00",
+   "entrega_utc": "2026-10-13 04:30:00"
+  },
+  {
+   "ref": "HIST-023",
+   "cliente": "Byron Alexis Muñoz Choc",
+   "lineas": [
+    {
+     "producto": "LUB-006",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-12 21:41:00",
+   "entrega_utc": "2026-10-13 11:41:00"
+  },
+  {
+   "ref": "HIST-024",
+   "cliente": "Esteban Mauricio Quiñónez Díaz",
+   "lineas": [
+    {
+     "producto": "LUB-003",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-13 17:07:00",
+   "entrega_utc": "2026-10-15 09:07:00"
+  },
+  {
+   "ref": "HIST-025",
+   "cliente": "Edwin Rolando Sian Cuxil",
+   "lineas": [
+    {
+     "producto": "LUB-004",
+     "cantidad": 2
+    },
+    {
+     "producto": "FRE-006",
+     "cantidad": 1
+    },
+    {
+     "producto": "ELE-007",
+     "cantidad": 2
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-13 16:41:00",
+   "entrega_utc": "2026-10-14 12:41:00"
+  },
+  {
+   "ref": "HIST-026",
+   "cliente": "Alejandro Javier Lainfiesta Ruiz",
+   "lineas": [
+    {
+     "producto": "CAS-002",
+     "cantidad": 1
+    },
+    {
+     "producto": "LUB-003",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-13 18:30:00",
+   "entrega_utc": "2026-10-14 03:30:00"
+  },
+  {
+   "ref": "HIST-027",
+   "cliente": "Kevin Alexander Pérez Tzoc",
+   "lineas": [
+    {
+     "producto": "LUB-001",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-14 20:30:00",
+   "entrega_utc": "2026-10-15 02:30:00"
+  },
+  {
+   "ref": "HIST-028",
+   "cliente": "Taller Hermanos Cutzal",
+   "lineas": [
+    {
+     "producto": "ELE-003",
+     "cantidad": 3
+    },
+    {
+     "producto": "ELE-007",
+     "cantidad": 4
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-14 15:22:00",
+   "entrega_utc": "2026-10-15 11:22:00"
+  },
+  {
+   "ref": "HIST-029",
+   "cliente": "MotoFix Zona 18",
+   "lineas": [
+    {
+     "producto": "LUB-005",
+     "cantidad": 3
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-14 17:07:00",
+   "entrega_utc": "2026-10-15 11:07:00"
+  },
+  {
+   "ref": "HIST-030",
+   "cliente": "Marvin Estuardo Xicará López",
+   "lineas": [
+    {
+     "producto": "LUB-001",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-15 22:22:00",
+   "entrega_utc": "2026-10-16 04:22:00"
+  },
+  {
+   "ref": "HIST-031",
+   "cliente": "Esteban Mauricio Quiñónez Díaz",
+   "lineas": [
+    {
+     "producto": "ACC-001",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-15 19:45:00",
+   "entrega_utc": "2026-10-16 09:45:00"
+  },
+  {
+   "ref": "HIST-032",
+   "cliente": "Andrés Sebastián Kohon Ávila",
+   "lineas": [
+    {
+     "producto": "CAS-003",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-15 18:15:00",
+   "entrega_utc": "2026-10-16 00:15:00"
+  },
+  {
+   "ref": "HIST-033",
+   "cliente": "Ana Lucía Méndez Ochoa",
+   "lineas": [
+    {
+     "producto": "ELE-004",
+     "cantidad": 1
+    },
+    {
+     "producto": "LUB-006",
+     "cantidad": 1
+    },
+    {
+     "producto": "LUB-002",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-16 17:07:00",
+   "entrega_utc": "2026-10-17 01:07:00"
+  },
+  {
+   "ref": "HIST-034",
+   "cliente": "Wilson Omar García Tuyuc",
+   "lineas": [
+    {
+     "producto": "FRE-001",
+     "cantidad": 1
+    },
+    {
+     "producto": "LUB-007",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-16 20:41:00",
+   "entrega_utc": "2026-10-17 05:41:00"
+  },
+  {
+   "ref": "HIST-035",
+   "cliente": "Taller Moto Express Zona 7",
+   "lineas": [
+    {
+     "producto": "FRE-003",
+     "cantidad": 2
+    },
+    {
+     "producto": "LUB-001",
+     "cantidad": 6
+    },
+    {
+     "producto": "FRE-001",
+     "cantidad": 2
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-16 18:22:00",
+   "entrega_utc": "2026-10-17 00:22:00"
+  },
+  {
+   "ref": "HIST-036",
+   "cliente": "Andrea Sofía Cifuentes Rivas",
+   "lineas": [
+    {
+     "producto": "LUB-006",
+     "cantidad": 1
+    },
+    {
+     "producto": "CAS-004",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-16 20:30:00",
+   "entrega_utc": "2026-10-17 06:30:00"
+  },
+  {
+   "ref": "HIST-037",
+   "cliente": "Josué Emanuel Tum Chiroy",
+   "lineas": [
+    {
+     "producto": "LUB-004",
+     "cantidad": 2
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-17 14:30:00",
+   "entrega_utc": "2026-10-18 00:30:00"
+  },
+  {
+   "ref": "HIST-038",
+   "cliente": "Taller Dos Ruedas Mixco",
+   "lineas": [
+    {
+     "producto": "ELE-007",
+     "cantidad": 2
+    },
+    {
+     "producto": "LUB-001",
+     "cantidad": 5
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-17 16:00:00",
+   "entrega_utc": "2026-10-18 08:00:00"
+  },
+  {
+   "ref": "HIST-039",
+   "cliente": "Moto Servicio La Florida",
+   "lineas": [
+    {
+     "producto": "FRE-002",
+     "cantidad": 3
+    },
+    {
+     "producto": "FRE-001",
+     "cantidad": 2
+    },
+    {
+     "producto": "ELE-003",
+     "cantidad": 3
+    }
+   ],
+   "pagada": false,
+   "fecha_utc": "2026-10-19 16:52:00",
+   "entrega_utc": "2026-10-20 03:52:00"
+  },
+  {
+   "ref": "HIST-040",
+   "cliente": "Rodrigo Esteban Samayoa Juárez",
+   "lineas": [
+    {
+     "producto": "ACC-003",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-19 15:52:00",
+   "entrega_utc": "2026-10-19 18:52:00"
+  },
+  {
+   "ref": "HIST-041",
+   "cliente": "Karla Beatriz Fuentes Lemus",
+   "lineas": [
+    {
+     "producto": "ACC-006",
+     "cantidad": 1
+    },
+    {
+     "producto": "LLA-001",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-19 18:41:00",
+   "entrega_utc": "2026-10-19 23:41:00"
+  },
+  {
+   "ref": "HIST-042",
+   "cliente": "Servicio Técnico El Pistón",
+   "lineas": [
+    {
+     "producto": "LUB-001",
+     "cantidad": 5
+    },
+    {
+     "producto": "LUB-004",
+     "cantidad": 4
+    },
+    {
+     "producto": "ELE-007",
+     "cantidad": 3
+    }
+   ],
+   "pagada": false,
+   "fecha_utc": "2026-10-19 18:52:00",
+   "entrega_utc": "2026-10-20 09:52:00"
+  },
+  {
+   "ref": "HIST-043",
+   "cliente": "Centro de Servicio Motoaventura",
+   "lineas": [
+    {
+     "producto": "LUB-001",
+     "cantidad": 4
+    },
+    {
+     "producto": "FRE-003",
+     "cantidad": 1
+    }
+   ],
+   "pagada": false,
+   "fecha_utc": "2026-10-20 18:07:00",
+   "entrega_utc": "2026-10-21 03:07:00"
+  },
+  {
+   "ref": "HIST-044",
+   "cliente": "Byron Alexis Muñoz Choc",
+   "lineas": [
+    {
+     "producto": "ACC-003",
+     "cantidad": 1
+    },
+    {
+     "producto": "LLA-004",
+     "cantidad": 1
+    },
+    {
+     "producto": "FRE-002",
+     "cantidad": 1
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-20 19:41:00",
+   "entrega_utc": "2026-10-21 13:41:00"
+  },
+  {
+   "ref": "HIST-045",
+   "cliente": "Érick Daniel Monterroso Pineda",
+   "lineas": [
+    {
+     "producto": "ACC-003",
+     "cantidad": 1
+    },
+    {
+     "producto": "LUB-004",
+     "cantidad": 1
+    },
+    {
+     "producto": "LUB-001",
+     "cantidad": 2
+    }
+   ],
+   "pagada": true,
+   "fecha_utc": "2026-10-20 15:52:00",
+   "entrega_utc": "2026-10-21 09:52:00"
+  }
+ ],
+ "unidades_requeridas": {
+  "ACC-001": 1,
+  "ACC-002": 1,
+  "ACC-003": 5,
+  "ACC-004": 2,
+  "ACC-006": 2,
+  "CAS-002": 2,
+  "CAS-003": 1,
+  "CAS-004": 5,
+  "CAS-005": 2,
+  "ELE-001": 1,
+  "ELE-003": 10,
+  "ELE-004": 1,
+  "ELE-005": 4,
+  "ELE-007": 13,
+  "FRE-001": 8,
+  "FRE-002": 4,
+  "FRE-003": 3,
+  "FRE-004": 1,
+  "FRE-006": 1,
+  "LLA-001": 1,
+  "LLA-004": 1,
+  "LLA-005": 1,
+  "LUB-001": 37,
+  "LUB-002": 5,
+  "LUB-003": 2,
+  "LUB-004": 13,
+  "LUB-005": 6,
+  "LUB-006": 4,
+  "LUB-007": 2
+ }
+}

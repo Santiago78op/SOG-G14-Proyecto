@@ -5,7 +5,7 @@ Contexto del repo para Claude Code. Está **versionado**: cualquier integrante d
 Lo primero, en este orden:
 
 1. **`wiki/AVANCE.md`**: dónde quedamos, qué pieza está en qué estado, el próximo paso y las preguntas abiertas. Es la fuente de verdad del progreso.
-2. **Tu rol.** La tabla del grupo está en el contexto de abajo. Cada rol tiene su manual en `Entrega_Fase2_Grupo14/2_Manuales_Usuario/` y sus secciones del informe marcadas con una franja gris.
+2. **Tu rol.** La tabla del grupo está en el contexto de abajo. En la Fase 3 cada rol tiene su manual en `Entrega_Fase3_Grupo14/2_Manuales_Usuario/` y sus secciones del informe marcadas con una franja gris. La guía es `Entrega_Fase3_Grupo14/LEEME_PRIMERO_Fase3.docx`.
 3. El contexto completo del proyecto, importado abajo.
 
 ## Cómo trabajar en este repo
@@ -15,7 +15,8 @@ Lo primero, en este orden:
 - **Las decisiones se anotan con su porqué** en `wiki/Decisiones y límites.md`, en el momento en que se toman.
 - **Los documentos de entrega son Word** (`.docx`), y el informe final se exporta a PDF. Lo gris y en cursiva es instrucción y se borra antes de entregar.
 - **Commits sin `Co-Authored-By` de Claude ni menciones a Claude en el mensaje.**
-- **No hacer commit de** `.venv/` ni de `Entrega_Fase2_Grupo14/_Paquetes_para_integrantes/` (ya están en `.gitignore`).
+- **No hacer commit de** `.venv/` ni de los `_Paquetes_para_integrantes/` de las fases 2 y 3 (ya están en `.gitignore`).
+- **Los Word y el plan de ventas de la Fase 3 salen de generadores** en `Entrega_Fase3_Grupo14/_Referencia/generadores/` (corren con el `.venv`). Si se edita a mano un Word generado, ya no se regenera: se sigue a mano.
 - **El repo es público**: no subir contraseñas (la del administrador de Odoo, la de una cuenta de Gmail) ni datos personales reales de clientes.
 
 ## El cerebro
