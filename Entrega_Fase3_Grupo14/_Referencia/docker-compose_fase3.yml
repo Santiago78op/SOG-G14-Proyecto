@@ -1,0 +1,58 @@
+# RutaMoto - Fase 1 - Infraestructura ERP
+# Odoo Community 18.0 + PostgreSQL 16 sobre Docker
+# Grupo 14 - Sistemas Organizacionales y Gerenciales 1, Seccion A
+# Uso:  docker compose up -d      |  Apagar: docker compose down
+
+services:
+  db:
+    image: postgres:16
+    container_name: rutamoto-db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  odoo:
+    image: odoo:18.0-20260908
+    container_name: rutamoto-odoo
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8069:8069"   # interfaz web
+      - "8072:8072"   # longpolling / chat en vivo
+    environment:
+      HOST: db
+      USER: ${DB_USER}
+      PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - odoo-web-data:/var/lib/odoo          # adjuntos y filestore
+      - ./config:/etc/odoo                   # odoo.conf
+      - ./addons:/mnt/extra-addons           # modulos propios (vacio por ahora)
+    restart: unless-stopped
+
+  # Servidor de correo de pruebas para las campanas del CRM (Fase 2).
+  # Captura todo lo que Odoo envia y lo muestra en http://localhost:8025
+  # En Odoo: servidor SMTP "mailpit", puerto 1025, sin cifrado ni usuario.
+  mailpit:
+    image: axllent/mailpit
+    container_name: rutamoto-mail
+    ports:
+      - "8025:8025"   # bandeja web
+      - "1025:1025"   # SMTP
+    restart: unless-stopped
+
+volumes:
+  odoo-db-data:
+    name: rutamoto_db_data
+  odoo-web-data:
+    name: rutamoto_web_data

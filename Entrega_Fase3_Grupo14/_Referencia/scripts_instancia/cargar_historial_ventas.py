@@ -21,23 +21,43 @@ ANTES DE CORRERLO SIN --probar: respaldo de la base desde /web/database/manager.
 """
 import argparse
 import getpass
+import itertools
 import json
 import os
 import sys
-import xmlrpc.client
+import urllib.request
 
 
 def conectar(url, db, usuario, clave):
-    comun = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/common", allow_none=True)
-    uid = comun.authenticate(db, usuario, clave, {})
+    """Abre la sesión por JSON-RPC.
+
+    Se usa JSON-RPC y no XML-RPC porque algunos asistentes de Odoo (el de facturación, por
+    ejemplo) devuelven una acción con valores nulos, y el XML-RPC del servidor no sabe
+    serializar None: la llamada falla aunque el trabajo se haya hecho.
+    """
+    contador = itertools.count(1)
+
+    def llamar(servicio, metodo, *args):
+        carga = json.dumps({"jsonrpc": "2.0", "method": "call",
+                            "params": {"service": servicio, "method": metodo, "args": list(args)},
+                            "id": next(contador)}).encode("utf-8")
+        pedido = urllib.request.Request(f"{url}/jsonrpc", carga,
+                                        {"Content-Type": "application/json"})
+        with urllib.request.urlopen(pedido, timeout=180) as r:
+            respuesta = json.loads(r.read().decode("utf-8"))
+        if "error" in respuesta:
+            datos = respuesta["error"].get("data") or {}
+            raise RuntimeError(datos.get("message") or respuesta["error"].get("message"))
+        return respuesta["result"]
+
+    uid = llamar("common", "login", db, usuario, clave)
     if not uid:
         sys.exit("No se pudo iniciar sesión: revisá base, usuario y contraseña.")
-    modelos = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/object", allow_none=True)
 
     def odoo(modelo, metodo, *args, contexto=None, **kw):
         if contexto:
             kw["context"] = contexto
-        return modelos.execute_kw(db, uid, clave, modelo, metodo, list(args), kw)
+        return llamar("object", "execute_kw", db, uid, clave, modelo, metodo, list(args), kw)
 
     return odoo
 
@@ -79,11 +99,14 @@ def validar_entregas(odoo, so_id, fecha_entrega):
         odoo("stock.picking", "action_assign", [pk["id"]])
         for mv in odoo("stock.move", "read", pk["move_ids"], fields=["product_uom_qty"]):
             odoo("stock.move", "write", [mv["id"]], {"quantity": mv["product_uom_qty"], "picked": True})
+        # la fecha programada solo se puede escribir ANTES de validar: Odoo la bloquea en un
+        # traslado hecho o cancelado
+        odoo("stock.picking", "write", [pk["id"]], {"scheduled_date": fecha_entrega})
         res = odoo("stock.picking", "button_validate", [pk["id"]], contexto=ctx)
         if isinstance(res, dict) and res.get("res_model"):
             raise RuntimeError(f"La entrega {pk['name']} abrió el asistente {res['res_model']}: "
                                "falta existencia o hay una configuración que pide confirmación")
-        odoo("stock.picking", "write", [pk["id"]], {"date_done": fecha_entrega, "scheduled_date": fecha_entrega})
+        odoo("stock.picking", "write", [pk["id"]], {"date_done": fecha_entrega})
         odoo("stock.move", "write", pk["move_ids"], {"date": fecha_entrega})
         lineas = odoo("stock.move.line", "search", [("move_id", "in", pk["move_ids"])])
         if lineas:
