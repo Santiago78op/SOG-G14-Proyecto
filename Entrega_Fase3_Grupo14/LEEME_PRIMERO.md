@@ -47,8 +47,8 @@ volumen, y se ejecutaron 12 pedidos reales por el sitio, WEB-01 a WEB-12, que pr
 compra directa, cotización desde el CRM, taller con tarifa B2B, producto que vuelve al catálogo
 tras una reposición, y carrito abandonado.
 
-Al cierre, la instancia tiene 63 pedidos confirmados por Q 21,366.00 con impuesto incluido, 64
-facturas publicadas, 51 entregas validadas y ningún producto en quiebre. Cuatro de los seis
+Al cierre, la instancia tiene 64 pedidos confirmados por Q 21,576.00 con impuesto incluido, 65
+facturas publicadas, 52 entregas validadas y ningún producto en quiebre. Cuatro de los seis
 indicadores de la Fase 1 cumplen su meta; los dos que no se pueden medir se declaran como no
 medidos y se explica qué haría falta para medirlos.
 
