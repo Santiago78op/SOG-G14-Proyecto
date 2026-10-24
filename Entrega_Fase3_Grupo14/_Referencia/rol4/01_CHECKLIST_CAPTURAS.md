@@ -146,8 +146,9 @@
 
 ### Figura 7 · Existencias por producto (barras)
 
-- **Ruta:** `Inventario › Informes › Existencias` › vista **Gráfico** › **Barras**, agrupado
-  por **Producto**.
+- **Ruta:** `Inventario › Informes › Ubicaciones` › vista **Gráfico** › **Barras**, medida
+  **Cantidad en inventario**, filtrado a **RMT/Existencias**, agrupado por **Producto**. El
+  reporte Existencias es una lista y no tiene gráfico en Odoo 18; el gráfico está en Ubicaciones.
 - **Filtro:** productos almacenables; si la gráfica sale ilegible, limita a los 15 con más
   existencia y dilo en el pie.
 - **Qué debe verse:** las barras de los productos; los de existencia baja se ven al final.
@@ -156,7 +157,8 @@
 
 ### Figura 8 · Inventario por categoría (pastel)
 
-- **Ruta:** la misma vista › **Pastel**, agrupado por **Categoría de producto**.
+- **Ruta:** la misma vista de **Ubicaciones** › **Pastel**, medida **Cantidad en inventario**,
+  filtrado a **RMT/Existencias**, agrupado por **Categoría de producto**.
 - **Qué debe verse:** las 6 categorías con su participación.
 - **Dato:** categoría con más unidades y con menos.
 - **Esperado:** Lubricantes y filtros es la mayor (178 unidades); Cascos y protección, la menor (40).

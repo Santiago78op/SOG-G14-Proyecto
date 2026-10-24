@@ -239,7 +239,7 @@ def check_history(odoo, rep: Report) -> None:
 
 def check_web(odoo, rep: Report) -> tuple[int, float]:
     print("\n--- Pedidos del sitio ---")
-    fields = ["name", "state", "amount_untaxed", "amount_total", "date_order", "team_id", "website_id"]
+    fields = ["name", "state", "amount_untaxed", "amount_total", "date_order", "team_id", "website_id", "partner_id"]
 
     # 1. Compras directas: tienen website_id.
     direct = odoo(
@@ -315,6 +315,15 @@ def check_web(odoo, rep: Report) -> tuple[int, float]:
     else:
         rep.warn("No hay ninguna cotización abandonada", "WEB-07 debería quedar como cotización")
 
+    if len(confirmed) != WEB_ORDERS:
+        print("  Detalle de pedidos del sitio:")
+        for o in sorted(confirmed, key=lambda x: x.get("date_order") or ""):
+            partner = o.get("partner_id")
+            partner = partner[1] if isinstance(partner, (list, tuple)) and len(partner) > 1 else (partner or "—")
+            print(
+                f"    {o.get('name')} · {partner} · {(o.get('date_order') or '')[:10]} · "
+                f"Q {money(o.get('amount_total')):,.2f}"
+            )
     rep.info("Desglose", f"{len(direct_confirmed)} compras directas + {len(role4)} cotizaciones del CRM")
     return len(confirmed), total
 
@@ -401,10 +410,28 @@ def check_top5(odoo, rep: Report) -> None:
         if pid:
             qty[pid] += float(line.get("product_uom_qty") or 0)
 
-    codes = read_codes(odoo, set(qty))
-    total_by_code = {codes.get(pid, str(pid)): q for pid, q in qty.items()}
+    # Excluir productos de servicio/flete: no son catálogo vendible.
+    rows = odoo(
+        "product.product", "read", sorted(qty),
+        fields=["default_code", "name", "type"],
+    )
+    info = {
+        int(r["id"]): (r.get("default_code") or f"id={r['id']}", (r.get("name") or ""), r.get("type"))
+        for r in rows
+    }
+    total_by_code = {}
+    excluded = []
+    for pid, q in qty.items():
+        code, name, ptype = info.get(pid, (str(pid), "", ""))
+        low = f"{code} {name}".lower()
+        if ptype == "service" or any(x in low for x in ("delivery", "envío", "envio", "flete", "shipping")):
+            excluded.append((code, q))
+            continue
+        total_by_code[code] = q
     top = sorted(total_by_code.items(), key=lambda kv: (-kv[1], kv[0]))[:5]
 
+    if excluded:
+        print("  Excluidos (servicio/flete):", ", ".join(f"{c} ({q:g})" for c, q in excluded))
     print("  Obtenido:")
     for code, q in top:
         print(f"    {code}: {q:g}")
@@ -624,9 +651,9 @@ def main() -> int:
         hist = odoo(
             "sale.order", "search_read",
             [["client_order_ref", "like", "HIST-"], ["state", "in", ["sale", "done"]]],
-            fields=["amount_untaxed"],
+            fields=["amount_total"],
         )
-        hist_total = sum(money(o.get("amount_untaxed")) for o in hist)
+        hist_total = sum(money(o.get("amount_total")) for o in hist)
         check_totals(rep, len(hist), hist_total, web_n, web_total)
         check_other_orders(odoo, rep)
         check_top5(odoo, rep)

@@ -16,6 +16,8 @@
 | `05b_firma_monica.png` | Firma de Mónica en el portal | Figura 5 | — | — |
 | `06_factura_monica.png` | Factura **INV/2026/00054** pagada, Q 860.00 | Figura 6 | 6.2 (tabla) | — |
 | `06b_pago_monica.png` | Registrar pago de la factura de Mónica (transferencia) | Figura 6 (apoyo) | — | — |
+| `06c_entrega_monica.png` | Entrega **RMT/OUT/00053** de Mónica en estado Hecho | Figura 6 | 6.2 | — |
+| `web11_entrega.png` | Entrega **RMT/OUT/00054** del Taller en estado Hecho | — | 6.2 (apoyo) | — |
 | `web11_formulario.png` | Formulario de Contáctanos lleno con el Taller | — | 6.2 (apoyo) | — |
 | `web11_pedido.png` | Pedido **S00056** del Taller, LUB-004 ×6 y LUB-007 ×3, **Q 364.50** | — | 6.2 (tabla) | — |
 | `web11_portal.png` | Portal del Taller con la cotización S00056, Q 364.50 | — | — | — |
@@ -26,9 +28,7 @@
 
 | Falta | Dónde | Para qué |
 |---|---|---|
-| **Entrega de Mónica** `RMT/OUT/00053` en estado **Hecho** | `Inventario › Entregas` | Figura 6 del manual; la factura sola no muestra la entrega |
-| **Entrega del Taller** `RMT/OUT/00054` en estado **Hecho** | `Inventario › Entregas` | Respaldo de WEB-11 |
-| **BI · inventario** (barras, pastel, stock bajo) | `Inventario › Informes` | Figuras 7-9 del manual y 10.2-10.4 del informe |
+| **BI · inventario** (barras, pastel, stock bajo) | `Inventario › Informes › Ubicaciones` (barras/pastel) y `Operaciones › Reabastecimiento` (stock bajo) | Figuras 7-9 del manual y 10.2-10.4 del informe |
 | **BI · ventas** (líneas día/semana/mes, top 5) | `Ventas › Informes` | Figuras 10-11 del manual y 10.5-10.6 del informe |
 | **BI · margen por canal** (extra) | `Ventas › Informes` | Figura 12 |
 | **BI · tablero** (extra) | `Dashboards` | Figura 13 |

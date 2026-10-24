@@ -11,13 +11,14 @@
 | `01_CHECKLIST_CAPTURAS.md` | Las 13 figuras del MU-06 y las ~20 tomas, en orden, con lo que hay que anotar en cada una. |
 | `02_MENSAJES.md` | Mensajes listos para Alberto, Jemima y Santiago, con las horas límite. |
 | `03_BORRADOR_MU-06.docx` | Textos, tablas y pies del manual, listos para pasar al MU-06 de entrega. |
-| `03_BORRADOR_MU-06_CON_IMAGENES.docx` | El mismo borrador con las figuras 1-6 insertadas; sirve para revisar el armado. |
+| `03_BORRADOR_MU-06_CON_IMAGENES.docx` | El mismo borrador con las figuras 1-6 y las dos entregas insertadas; sirve para revisar el armado. |
 | `04_BORRADOR_INFORME_6.2_10.docx` | Secciones 6.2 y 10 del informe, con la justificación del BI y los pies de figura. |
 | `04_BORRADOR_INFORME_6.2_10_CON_IMAGENES.docx` | Igual, con el lead insertado en 6.2. |
 | `05_VERIFICAR_BI.py` | Script de solo lectura que compara Odoo contra la hoja `4_Cuadre` antes de capturar. |
 | `06_GUION_VIDEO_Y_DEMO_ROL4.md` | Guion del video de 8-10 min, la demo de 4 min y el texto de las diapositivas 6, 10 y 11. |
 | `07_GUIA_CONTINUAR_23OCT.md` | Plan de cierre del viernes 23: orden de ataque, corte del BI y mínimo viable. |
 | `08_PENDIENTES_ROL4.md` | Estado de cada entregable y lo que falta, con horarios. |
+| `09_VERIFICACION_DATOS.md` | Datos comprobados contra Odoo y lo que falta llenar en el informe. |
 | `capturas_seleccionadas/` | 13 capturas depuradas y su `MANIFEST.md`; el resto de la carpeta `images/` no se usa. |
 
 ## Qué es obligatorio y qué es extra

@@ -1,14 +1,14 @@
-# Pendientes del rol 4 · viernes 23-10, 19:40
+# Pendientes del rol 4 · viernes 23-10, 23:00
 
 ## Estado
 
 | Entregable | Estado | Qué falta |
 |---|---|---|
 | Flujo B WEB-09 y WEB-11 | ✅ | S00055 y S00056, facturas pagadas y entregas hechas |
-| Capturas del CRM | 🟡 | faltan las **2 capturas de las entregas** (RMT/OUT/00053 y 00054) |
+| Capturas del CRM | ✅ | figuras 1-6 y las 2 entregas (RMT/OUT/00053 y 00054) |
 | Capturas del BI | ⬜ | las 7 figuras: barras, pastel, stock bajo, líneas día/semana/mes, top 5, margen y tablero |
-| MU-06 | 🟡 | insertar las 13 figuras, las 2 entregas y las del BI; pasarlo a la plantilla con portada |
-| Informe 6.2 y 10 | 🟡 | insertar figuras y llenar los números del BI; 6.2 ya tiene la tabla con S00055/S00056 |
+| MU-06 | 🟡 | borrador visual con figuras 1-6 y entregas; faltan las del BI y portada/plantilla |
+| Informe 6.2 y 10 | 🟡 | `informe_fase3_secciones_Brayan_FORMATO.docx` con los números; faltan las capturas 2-8 |
 | Video | ⬜ | grabar el flujo B y el BI, editar y subir a Drive |
 | Diapositivas 6, 10 y 11 | ⬜ | llenarlas con las capturas y los números reales |
 | Entrega a Santiago | ⬜ | secciones, MU-06, capturas, enlace del video y nota con el corte |
