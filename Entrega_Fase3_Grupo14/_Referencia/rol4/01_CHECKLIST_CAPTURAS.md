@@ -9,15 +9,29 @@
 > obligatorios: barras, pastel, stock bajo, líneas por día/semana/mes y top 5). Las figuras
 > **12** (margen por canal) y **13** (tablero) son extras del plan del grupo: suman, pero no son
 > requisito. Si el tiempo aprieta, primero 1-11 y después 12-13.
+>
+> **Ojo con la instancia real del 23-10** (leído de Odoo, no del plan):
+> - Los precios de la tienda son **con IVA incluido**. La historia da **Q 14,679.50 con IVA** y
+>   **Q 13,106.67 sin IVA**. El informe de ventas de Odoo muestra **sin IVA** por omisión: hay que
+>   decir siempre cuál se está usando.
+> - Ya hay **5 pedidos de la Fase 2** además de la historia: la base tiene **50 pedidos por
+>   Q 16,794.50**. El informe de ventas los va a incluir. Decidir si se excluyen o se explican;
+>   no borrarlos.
+> - Al corte, Odoo reporta **CAS-005 (1/2) y ELE-002 (12/30)** bajo el mínimo; el plan preveía
+>   cuatro (CAS-005, ELE-002, FRE-004, LUB-001). Usar lo que muestre Odoo y explicar la diferencia.
+> - El top 5 de la **historia sola** es LUB-001 (37), LUB-004 (13), ELE-007 (13), ELE-003 (10),
+>   FRE-001 (8); con los pedidos del sitio cambia. Anotar el top 5 real.
 
 ## Antes de empezar (30 minutos)
 
-- [ ] URL del túnel y usuario propio (no `admin`).
+- [ ] URL del **servidor en la nube** y usuario propio (no `admin`): `http://54.167.23.144:8069`.
+- [ ] Tienda: `http://54.167.23.144:8069/shop`; Mailpit: `http://54.167.23.144:8025`.
 - [ ] Sitio publicado: 38 productos, 6 categorías, registro gratuito.
-- [ ] Pago de prueba (Demo o transferencia) publicado y factura automática activa.
+- [ ] Medio de pago publicado (transferencia o Demo) y factura automática activa. **Si es
+  transferencia, el pago no se confirma solo: hay que registrar el pago a mano.**
 - [ ] P00004 recibida: **LLA-002 en 16**.
-- [ ] Historia cargada: **45 pedidos, Q 14,679.50, fechas del 05 al 20 de octubre**.
-- [ ] Mailpit arriba y correo saliente configurado.
+- [ ] Historia cargada: **45 pedidos, Q 14,679.50 con IVA (Q 13,106.67 sin IVA)**, fechas del 05 al 20.
+- [ ] Mailpit arriba; la bandeja arranca vacía y los correos nuevos sí se capturan.
 - [ ] Mónica y Taller Hermanos Cutzal con acceso al portal (o sabes cómo invitarlos).
 - [ ] Equipo del sitio creado (por defecto **Website Sales**) y **Márgenes** activos en Ventas.
 - [ ] Módulo **Dashboards** (`board`) instalado; si no, Aplicaciones › buscar «Dashboards».
@@ -67,9 +81,10 @@
 ### Figura 2 · El lead en el CRM
 
 - **Pantalla:** `CRM › Pipeline` (o `Iniciativas`), y luego la ficha del lead.
-- **Qué debe verse:** la tarjeta del lead con el nombre de Mónica, el correo y el origen
-  **Sitio web**; en la ficha, el mensaje y el teléfono que venían del formulario.
-- **Dato:** nombre del lead, etapa en la que entró, origen, fecha.
+- **Qué debe verse:** la tarjeta del lead con el nombre de Mónica, el correo y el mensaje; en la
+  ficha, el teléfono y el texto que venían del formulario. El campo **Origen** puede estar vacío;
+  no es bloqueante, se anota como diferencia.
+- **Dato:** nombre del lead, etapa y fecha; si el origen está vacío, anotarlo.
 - **Si no aparece:** revisa que el módulo `website_crm` esté instalado y que el formulario
   esté configurado para crear un lead. Anótalo como problema del capítulo 1.
 
@@ -95,9 +110,10 @@
 ### Figura 5 · El cliente acepta y paga en el portal
 
 - **Pantalla:** abre el enlace del correo en una **sesión de incógnito**.
-- **Qué debe verse:** la cotización en el portal, el botón **Aceptar**, la pantalla de pago
-  con el proveedor de prueba y la confirmación del pedido.
-- **Dato:** número de pedido que asigna Odoo, fecha, total pagado, estado del pago.
+- **Qué debe verse:** la cotización en el portal, el botón **Aceptar**, la pantalla del medio de
+  pago (transferencia o Demo) y la confirmación del pedido. Si es transferencia, el pago se
+  registra a mano después; no se confirma solo.
+- **Dato:** número de pedido que asigna Odoo, fecha, total y estado del pago.
 - **Ojo:** si Mónica no tiene usuario de portal, invítala desde
   `Contactos › Mónica › Acción › Conceder acceso al portal`; el correo de invitación también
   llega a Mailpit. Hazlo **antes** de la captura, no en medio del flujo.
@@ -106,12 +122,13 @@
 
 - **Pantalla 1:** `Inventario › Entregas`, abrir la entrega del pedido, **Validar**.
 - **Pantalla 2:** `Facturación › Facturas de clientes`, abrir la factura del pedido.
-- **Qué debe verse:** la entrega en estado **Hecho** y la factura en estado **Pagada**;
-  el mismo número de pedido en las dos.
-- **Dato:** número de entrega, número de factura, fecha, cantidad entregada, existencia antes
-  y después (CAS-005 pasa de 2 a 1; CAS-006 de 10 a 9).
-- **Ojo:** si la factura no está pagada, el inventario no baja y el BI no cuadra. No sigas
-  hasta que esté pagada.
+- **Qué debe verse:** la entrega en estado **Hecho** y la factura en estado **Pagada** (o con el
+  pago registrado a mano si es transferencia); el mismo pedido en las dos.
+- **Dato:** número de entrega, número de factura, fecha, cantidad entregada y existencia antes y
+  después. Anotar los valores reales: pueden cambiar por los pedidos de la Fase 2.
+- **Ojo:** el inventario baja cuando **validas la entrega**, no cuando se paga la factura. Si la
+  factura queda pendiente, el pedido existe pero el pago no está registrado; no lo confundas con un
+  error de stock. Valida la entrega y registra el pago (o documenta que quedó pendiente).
 
 ### Cierre del capítulo 1
 
@@ -150,7 +167,7 @@
   **bajo el mínimo** o `qty_to_order > 0`.
 - **Qué debe verse:** la tabla con producto, mínimo, existencia y cantidad a pedir.
 - **Dato:** lista exacta y valores.
-- **Esperado:** **CAS-005, ELE-002, FRE-004 y LUB-001**. Si salen otros, revisa que Jemima
+- **Esperado al corte:** **CAS-005 (1/2) y ELE-002 (12/30)**; el plan preveía CAS-005, ELE-002, FRE-004 y LUB-001. Si salen otros, revisa que Jemima
   haya validado sus entregas y que P00004 esté recibida.
 
 ### Figura 10 · Evolución de las ventas (tres capturas)

@@ -29,6 +29,7 @@ import os
 import sys
 import xmlrpc.client
 from collections import Counter, defaultdict
+from datetime import datetime
 from pathlib import Path
 
 # --- Lo que dice el plan (hoja 4_Cuadre) -------------------------------------
@@ -145,6 +146,47 @@ def print_dates(hist: list[dict]) -> None:
 # --- Comprobaciones ----------------------------------------------------------
 
 
+def check_recent_leads(odoo, rep: Report) -> None:
+    """Lista los leads/oportunidades creados hoy. Sirve para saber si el formulario del sitio
+    está creando la iniciativa o si el problema es solo el filtro de la vista."""
+    print("\n--- Iniciativas/leads creados hoy (diagnóstico del formulario) ---")
+    today = datetime.now().strftime("%Y-%m-%d 00:00:00")
+    try:
+        leads = odoo(
+            "crm.lead", "search_read",
+            [["create_date", ">=", today]],
+            fields=[
+                "name", "contact_name", "email_from", "source_id", "type",
+                "stage_id", "create_date", "user_id", "team_id",
+            ],
+        )
+    except xmlrpc.client.Fault as exc:
+        rep.warn("No se pudieron leer las iniciativas", str(exc))
+        return
+
+    if not leads:
+        rep.warn(
+            "No hay iniciativas creadas hoy",
+            "El formulario no está creando el lead, o se creó antes de hoy. Revisá la acción del "
+            "formulario y el módulo «Formulario de contacto».",
+        )
+        return
+
+    for lead in leads:
+        source = lead.get("source_id")
+        source = source[1] if isinstance(source, (list, tuple)) and len(source) > 1 else (source or "—")
+        stage = lead.get("stage_id")
+        stage = stage[1] if isinstance(stage, (list, tuple)) and len(stage) > 1 else (stage or "—")
+        user = lead.get("user_id")
+        user = user[1] if isinstance(user, (list, tuple)) and len(user) > 1 else (user or "sin asignar")
+        print(
+            f"  {lead.get('name')} · {lead.get('contact_name') or '—'} · "
+            f"{lead.get('email_from') or '—'} · tipo {lead.get('type')} · origen {source} · "
+            f"etapa {stage} · {user} · {lead.get('create_date')}"
+        )
+    rep.info("Iniciativas de hoy", f"{len(leads)}; si no ves la de Mónica, el formulario no la creó")
+
+
 def check_history(odoo, rep: Report) -> None:
     print("\n--- Historia simulada ---")
     fields = [
@@ -166,13 +208,18 @@ def check_history(odoo, rep: Report) -> None:
             f"(totales con referencia HIST: {len(hist)})"
         )
 
-    total = sum(money(o.get("amount_untaxed")) for o in confirmed)
+    total = sum(money(o.get("amount_total")) for o in confirmed)
+    net = sum(money(o.get("amount_untaxed")) for o in confirmed)
     if abs(total - HIST_TOTAL) <= TOL:
-        rep.ok("Venta de la historia", f"Q {total:,.2f} (esperado Q {HIST_TOTAL:,.2f})")
+        rep.ok(
+            "Venta de la historia (IVA incluido)",
+            f"Q {total:,.2f} (esperado Q {HIST_TOTAL:,.2f}); sin IVA Q {net:,.2f}",
+        )
     else:
         rep.warn(
             "Venta de la historia distinta del plan",
-            f"Odoo Q {total:,.2f} vs plan Q {HIST_TOTAL:,.2f}. Revisá tarifa B2B de los talleres.",
+            f"Odoo Q {total:,.2f} con IVA vs plan Q {HIST_TOTAL:,.2f}. Revisá la tarifa B2B; "
+            f"sin IVA Odoo muestra Q {net:,.2f}.",
         )
 
     days = Counter((o.get("date_order") or "")[:10] for o in confirmed)
@@ -217,7 +264,8 @@ def check_web(odoo, rep: Report) -> tuple[int, float]:
     for o in role4:
         by_id.setdefault(int(o["id"]), o)
     confirmed = list(by_id.values())
-    total = sum(money(o.get("amount_untaxed")) for o in confirmed)
+    total = sum(money(o.get("amount_total")) for o in confirmed)
+    net = sum(money(o.get("amount_untaxed")) for o in confirmed)
 
     if role4:
         web_team_ids = {
@@ -237,18 +285,29 @@ def check_web(odoo, rep: Report) -> tuple[int, float]:
 
     if len(confirmed) == WEB_ORDERS:
         rep.ok(f"Pedidos del sitio: {len(confirmed)} confirmados")
+    elif len(confirmed) == 0:
+        rep.warn(
+            "No hay pedidos del sitio",
+            "El BI puede usar la historia, pero el flujo B (WEB-09/11) no está hecho. "
+            "No captures el manual del CRM sin esos dos pedidos.",
+        )
     else:
-        rep.fail(
-            f"Pedidos del sitio: se esperaban {WEB_ORDERS} confirmados y hay {len(confirmed)}. "
-            "Revisá que WEB-01 a WEB-12 estén hechas y que WEB-07 siga como cotización."
+        rep.warn(
+            f"Pedidos del sitio: hay {len(confirmed)} de {WEB_ORDERS}",
+            "Si vas a capturar con corte, decláralo en el informe: «corte al 23-10, N pedidos». "
+            "No inventes los que faltan.",
         )
 
     if abs(total - WEB_TOTAL) <= TOL:
-        rep.ok("Venta del sitio", f"Q {total:,.2f} (esperado Q {WEB_TOTAL:,.2f})")
+        rep.ok(
+            "Venta del sitio (IVA incluido)",
+            f"Q {total:,.2f} (esperado Q {WEB_TOTAL:,.2f}); sin IVA Q {net:,.2f}",
+        )
     else:
         rep.warn(
             "Venta del sitio distinta del plan",
-            f"Odoo Q {total:,.2f} vs plan Q {WEB_TOTAL:,.2f}. Revisá tarifa B2B, impuestos y WEB-07.",
+            f"Odoo Q {total:,.2f} con IVA vs plan Q {WEB_TOTAL:,.2f}. Revisá tarifa B2B, "
+            f"impuestos y WEB-07; sin IVA Odoo muestra Q {net:,.2f}.",
         )
 
     if direct_drafts:
@@ -261,7 +320,7 @@ def check_web(odoo, rep: Report) -> tuple[int, float]:
 
 
 def check_totals(rep: Report, hist_n: int, hist_total: float, web_n: int, web_total: float) -> None:
-    print("\n--- Total confirmado ---")
+    print("\n--- Total del plan (historia + sitio) ---")
     n = hist_n + web_n
     total = hist_total + web_total
     if n == TOTAL_ORDERS:
@@ -269,9 +328,64 @@ def check_totals(rep: Report, hist_n: int, hist_total: float, web_n: int, web_to
     else:
         rep.warn(f"Total de pedidos: {n} (esperado {TOTAL_ORDERS})")
     if abs(total - TOTAL_SALES) <= TOL:
-        rep.ok("Total vendido", f"Q {total:,.2f} (esperado Q {TOTAL_SALES:,.2f})")
+        rep.ok(
+            "Total vendido (IVA incluido)",
+            f"Q {total:,.2f} (esperado Q {TOTAL_SALES:,.2f})",
+        )
     else:
-        rep.warn("Total vendido distinto del plan", f"Odoo Q {total:,.2f} vs plan Q {TOTAL_SALES:,.2f}")
+        rep.warn(
+            "Total vendido distinto del plan",
+            f"Odoo Q {total:,.2f} con IVA vs plan Q {TOTAL_SALES:,.2f}",
+        )
+
+
+def check_other_orders(odoo, rep: Report) -> None:
+    """Pedidos confirmados del período que no son historia ni sitio.
+
+    La instancia ya trae pedidos de la Fase 2 (por ejemplo S00013, del 07-10).
+    El informe de ventas los va a incluir; hay que decidir si se excluyen o se explican.
+    """
+    print("\n--- Otros pedidos confirmados en el período ---")
+    fields = [
+        "name", "client_order_ref", "state", "amount_total", "amount_untaxed",
+        "date_order", "team_id", "website_id", "partner_id",
+    ]
+    orders = odoo(
+        "sale.order", "search_read",
+        [["state", "in", ["sale", "done"]], ["date_order", ">=", START]],
+        fields=fields,
+    )
+    partners = odoo("res.partner", "search_read", [["name", "in", ROLE4_PARTNERS]], fields=["name"])
+    pids = {int(p["id"]) for p in partners}
+
+    others = []
+    for o in orders:
+        ref = o.get("client_order_ref") or ""
+        if ref.startswith("HIST-"):
+            continue
+        if o.get("website_id"):
+            continue
+        if many2one_id(o.get("partner_id")) in pids and (o.get("date_order") or "") >= ROLE4_START:
+            continue
+        others.append(o)
+
+    if not others:
+        rep.ok("No hay otros pedidos confirmados en el período")
+        return
+
+    total = sum(money(o.get("amount_total")) for o in others)
+    net = sum(money(o.get("amount_untaxed")) for o in others)
+    print(f"  {len(others)} pedido(s) extra: Q {total:,.2f} con IVA / Q {net:,.2f} sin IVA")
+    for o in others[:12]:
+        print(
+            f"    {o.get('name')} · ref {o.get('client_order_ref') or '—'} · "
+            f"{(o.get('date_order') or '')[:10]} · Q {money(o.get('amount_total')):,.2f}"
+        )
+    rep.warn(
+        "Hay pedidos que no son de la historia ni del sitio",
+        f"{len(others)} pedidos, Q {total:,.2f} con IVA. El informe de ventas los va a incluir: "
+        "decidí si los excluís por fecha/equipo o los explicás en el texto. No los borres de la base.",
+    )
 
 
 def check_top5(odoo, rep: Report) -> None:
@@ -387,7 +501,7 @@ def check_role4_orders(odoo, rep: Report) -> None:
     orders = odoo(
         "sale.order", "search_read",
         [["partner_id", "in", list(pids)], ["state", "in", ["sale", "done"]], ["date_order", ">=", ROLE4_START]],
-        fields=["name", "partner_id", "date_order", "amount_untaxed", "invoice_ids", "picking_ids"],
+        fields=["name", "partner_id", "date_order", "amount_untaxed", "amount_total", "invoice_ids", "picking_ids"],
     )
     if len(orders) != 2:
         rep.fail(f"Se esperaban 2 pedidos del sitio para el rol 4 y hay {len(orders)}")
@@ -396,7 +510,8 @@ def check_role4_orders(odoo, rep: Report) -> None:
 
     for order in sorted(orders, key=lambda o: o["name"]):
         partner = pids.get(many2one_id(order.get("partner_id")), "?")
-        print(f"\n  {order['name']} · {partner} · Q {money(order.get('amount_untaxed')):,.2f}")
+        print(f"\n  {order['name']} · {partner} · Q {money(order.get('amount_total')):,.2f} con IVA "
+              f"(Q {money(order.get('amount_untaxed')):,.2f} sin IVA)")
 
         inv_ids = order.get("invoice_ids") or []
         if not inv_ids:
@@ -441,7 +556,7 @@ def check_margin(odoo, rep: Report) -> None:
         groups = odoo(
             "sale.report", "read_group",
             [["state", "in", ["sale", "done"]], ["date", ">=", START]],
-            ["amount_untaxed:sum", "margin:sum"],
+            ["price_total:sum", "price_subtotal:sum", "margin:sum"],
             ["team_id"],
         )
     except xmlrpc.client.Fault as exc:
@@ -451,7 +566,11 @@ def check_margin(odoo, rep: Report) -> None:
     for g in groups:
         team = g.get("team_id")
         name = team[1] if isinstance(team, (list, tuple)) and len(team) > 1 else (team or "Sin equipo")
-        print(f"  {name}: venta Q {money(g.get('amount_untaxed')):,.2f} · margen Q {money(g.get('margin')):,.2f}")
+        print(
+            f"  {name}: venta Q {money(g.get('price_total')):,.2f} con IVA "
+            f"(Q {money(g.get('price_subtotal')):,.2f} sin IVA) · "
+            f"margen Q {money(g.get('margin')):,.2f}"
+        )
 
 
 # --- Main --------------------------------------------------------------------
@@ -499,6 +618,7 @@ def main() -> int:
         teams = []
 
     try:
+        check_recent_leads(odoo, rep)
         check_history(odoo, rep)
         web_n, web_total = check_web(odoo, rep)
         hist = odoo(
@@ -508,6 +628,7 @@ def main() -> int:
         )
         hist_total = sum(money(o.get("amount_untaxed")) for o in hist)
         check_totals(rep, len(hist), hist_total, web_n, web_total)
+        check_other_orders(odoo, rep)
         check_top5(odoo, rep)
         check_low_stock(odoo, rep)
         check_zero(odoo, rep)

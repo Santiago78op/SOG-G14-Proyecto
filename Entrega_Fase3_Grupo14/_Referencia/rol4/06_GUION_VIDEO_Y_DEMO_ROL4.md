@@ -3,13 +3,19 @@
 > Video de 8-10 minutos y 4 minutos de demo en vivo. Se graba **después** de WEB-12 y de las
 > capturas del BI. Las mismas capturas del checklist sirven para el video y las diapositivas.
 
+> **Nota del 23-10 (nube):** la instancia está en `http://54.167.23.144:8069`, Mailpit en
+> `:8025`. Los precios son con IVA incluido; Odoo muestra el informe de ventas sin IVA. La base
+> ya tiene 5 pedidos de la Fase 2 además de la historia: el BI puede dar más de 56 pedidos.
+> Bajo el mínimo, Odoo reporta ELE-002. **Decir el número real de Odoo, no el del plan.**
+
+
 ## Antes de grabar
 
-- [ ] WEB-12 hecha y avisada por Jemima.
+- [ ] WEB-12 hecha y avisada por Jemima (o corte declarado si no llega).
 - [ ] Entregas de Jemima validadas (si no, el stock no baja en el video).
 - [ ] `05_VERIFICAR_BI.py` sin fallos críticos.
 - [ ] Mailpit arriba y el correo de la cotización a mano.
-- [ ] Sesión de incógnito lista como Mónica (para el portal).
+- [ ] Sesión de incógnito lista como Mónica (para el portal); si no hay usuario, invitarla antes.
 - [ ] Navegador a 100 %, notificaciones silenciadas, ninguna contraseña visible.
 - [ ] Guion impreso o en otra pantalla; una sola toma si se puede.
 
@@ -41,13 +47,12 @@ el total **Q 860.00**, enviar por correo y el correo en Mailpit con el enlace al
 
 ### 3:30-5:30 · El portal cierra la venta
 
-**Qué se ve:** abrir el enlace en incógnito, la cotización en el portal, **Aceptar**, el pago de
-prueba, la confirmación del pedido. Luego, en el backend: el pedido confirmado, la entrega validada
-y la factura pagada.
+**Qué se ve:** abrir el enlace en incógnito, la cotización en el portal, **Aceptar**, el pago (transferencia o Demo; si es transferencia, se registra a mano), la confirmación del pedido. Luego, en el backend: el pedido confirmado, la entrega validada
+y la factura pagada (o el pago registrado a mano si es transferencia).
 
 **Qué decir:**
-> «El cliente acepta y paga en el portal. El pedido se confirma solo en Ventas, la factura se
-> publica y la entrega se reserva. Cuando la bodega valida la entrega, baja la existencia. El mismo
+> «El cliente acepta y paga (o deja la transferencia) en el portal. El pedido se confirma solo en
+> Ventas, la factura se publica y la entrega se reserva. Cuando la bodega valida la entrega, baja la existencia. El mismo
 > pedido se puede seguir en Ventas, Inventario y Facturación.»
 
 **Ojo:** si el pago no queda pagado, no sigas: el inventario no baja y el BI no cuadra.
@@ -60,7 +65,7 @@ semana, o el filtro de fecha.
 
 **Qué decir:**
 > «Los reportes salen de la misma base. Este es el inventario por producto, por categoría y los
-> cuatro productos bajo el mínimo. En ventas, la historia del 05 al 20 se ve como una serie y los
+> productos bajo el mínimo que muestre Odoo (al 23-10, ELE-002). En ventas, la historia del 05 al 20 se ve como una serie y los
 > pedidos del sitio del 21 al 23 como la cola. El top 5 por unidades y el margen por canal salen
 > del mismo informe.»
 
@@ -84,12 +89,12 @@ semana, o el filtro de fecha.
 | 0:00 | Muestras el sitio y el formulario | «El cliente pide una cotización desde el sitio.» |
 | 0:40 | Envías el formulario y abres el lead en el CRM | «El lead entra solo, con origen del sitio.» |
 | 1:20 | Conviertes a oportunidad y muestras la cotización | «La cotización sale del CRM, con el precio de lista.» |
-| 1:50 | Abres Mailpit y el portal | «El correo lleva al portal; el cliente acepta y paga.» |
+| 1:50 | Abres Mailpit y el portal | «El correo lleva al portal; el cliente acepta y paga (o deja la transferencia).» |
 | 2:30 | Muestras el pedido, la entrega y la factura | «El mismo pedido en Ventas, Inventario y Facturación.» |
 | 3:10 | Abres el tablero y cambias un filtro | «El BI se actualiza con la venta recién hecha.» |
 
-**Si el túnel falla:** usa las capturas del checklist y di que el respaldo está en la segunda
-laptop. No improvises una base nueva.
+**Si el servidor falla:** usa las capturas del checklist y di que el respaldo está en la nube.
+No improvises una base nueva ni vuelvas a `localhost`.
 
 ## Diapositivas 6, 10 y 11
 
@@ -106,13 +111,13 @@ laptop. No improvises una base nueva.
 
 - Título: «BI · Inventario».
 - Tres capturas: barras por producto, pastel por categoría, tabla de stock bajo.
-- Frase: «38 productos, 4 bajo el mínimo y 0 en cero; el dato sale de la misma base.»
+- Frase: «38 productos, los que estén bajo el mínimo según Odoo (al 23-10, ELE-002) y 0 en cero; el dato sale de la misma base.»
 
 ### Diapositiva 11 · BI de ventas
 
 - Título: «BI · Ventas».
 - Dos capturas: líneas por día (y el cambio a semana/mes) y top 5.
-- Frase: «56 pedidos y Q 19,111.00; el top 5 concentra el 57 % de las unidades.»
+- Frase: «el número real de pedidos y Q con IVA; el plan estimaba 56 y Q 19,111.00, y un top 5 con 57 % de las unidades.»
 - Si el número real difiere, se dice: «el plan preveía... y Odoo mostró...».
 
 ## Reglas de la grabación
